@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     float sinkRate = 1f;
     
-    float money;
+    float money = 100f;
 
     void Start()
     {
@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         money += change;
         timer.text = Mathf.RoundToInt(money).ToString();
         damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
+
+        if (money <= 0)
+        {
+            //game over!!!
+        }
     }
 
     public float GetMoney()
@@ -97,9 +102,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            return new Vector3(Random.Range(6, 3), Random.Range(-2, 2), 0);
+            return new Vector3(Random.Range(3, 6), Random.Range(-2, 2), 0);
         }
-        
     }
 
     IEnumerator SpawnBlackHoles()
