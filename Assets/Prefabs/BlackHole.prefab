@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1350846234978532802, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_Name
       value: BlackHole
@@ -15,7 +19,15 @@ PrefabInstance:
     - target: {fileID: 3365113988749106845, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+      objectReference: {fileID: -6795099931986786932, guid: b066203333ac3de4ea7451c016cdbfce, type: 3}
+    - target: {fileID: 6327439414900438790, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327439414900438790, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6929346456002256277, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -58,6 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8489762433071374920, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+    - {fileID: 4468738622004821997, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
