@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
+  m_Name: GrandFather
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItem
+  price: 2
+  maxOwned: 1
+  displayName: Grand Father Clock
+  icon: {fileID: -6029575047621674897, guid: ee910700a6b2c22429a7e4c21828b8ad, type: 3}
+  soldOut: {fileID: 0}
+  prefab: {fileID: 2598413368369654924, guid: 68b7bb1a7ab5d4e03bf75a5d7f72f782, type: 3}

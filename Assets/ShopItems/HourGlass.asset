@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
+  m_Name: HourGlass
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItem
+  price: 10
+  maxOwned: 1
+  displayName: Hour Glass
+  icon: {fileID: 8921600837666019768, guid: e171a10e8fc704a478a18b056e1e6e7c, type: 3}
+  soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 7782884121441752466, guid: f8ec30fe7cea44f4d89034dc65be4c66, type: 3}

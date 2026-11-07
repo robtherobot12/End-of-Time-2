@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_Name
-      value: Square
+      value: ToyClock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365113988749106845, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8433043718638216072, guid: 56d40b2cba98c8345bf939e832ab7a46, type: 3}
+    - target: {fileID: 6327439414900438790, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.875
       objectReference: {fileID: 0}
     - target: {fileID: 6929346456002256277, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_LocalPosition.x

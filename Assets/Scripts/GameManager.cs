@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] UpgradeChannel upgradeChannel;
+    [SerializeField] EventChannel halftimeChannel;
+    
     [SerializeField] TMP_Text timer;
 
     [SerializeField] TMP_Text damageMultiplier;
@@ -19,11 +22,33 @@ public class GameManager : MonoBehaviour
 
     float sinkRate = 1f;
     
-    float money;
+    float money = 100f;
 
     void Start()
     {
         StartCoroutine(SpawnBlackHoles());
+    }
+
+    void OnEnable()
+    {
+        upgradeChannel._event.AddListener(HandleBuy);
+    }
+
+    void OnDisable()
+    {
+        upgradeChannel._event.RemoveListener(HandleBuy);
+    }
+
+    void HandleBuy(ShopItem item)
+    {
+        UpdateMoney(-item.price);
+        AddClock(item);
+        
+        if (item.displayName == "end idk")
+        {
+            // start transition
+            halftimeChannel._event.Invoke();
+        }
     }
     
     public void ClickClock() {
@@ -35,6 +60,11 @@ public class GameManager : MonoBehaviour
         money += change;
         timer.text = Mathf.RoundToInt(money).ToString();
         damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
+
+        if (money <= 0)
+        {
+            //game over!!!
+        }
     }
 
     public float GetMoney()
@@ -51,6 +81,7 @@ public class GameManager : MonoBehaviour
     public void AddClock(ShopItem clockItem)
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
+        clock.transform.localPosition = GetRandomPosition();
         UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
@@ -65,7 +96,14 @@ public class GameManager : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
-        return new Vector3(Random.Range(-6, -3), Random.Range(-2, 2), 0);
+        if (Random.Range(0, 1f) >= 0.5f)
+        {
+            return new Vector3(Random.Range(-6, -3), Random.Range(-2, 2), 0);
+        }
+        else
+        {
+            return new Vector3(Random.Range(3, 6), Random.Range(-2, 2), 0);
+        }
     }
 
     IEnumerator SpawnBlackHoles()
