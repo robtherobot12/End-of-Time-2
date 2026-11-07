@@ -10,6 +10,8 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     float x_offset, y_offset;
     float x_speed, y_speed = 0.3f;
 
+    Coroutine floatCoroutine;
+
     void Awake()
     {
         cam = Camera.main;
@@ -19,7 +21,7 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     void Start()
     {
         transform.localPosition = new Vector3(-5,0,0);
-        StartCoroutine(Float());
+        floatCoroutine = StartCoroutine(Float());
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
 
     public void OnBeginDrag(PointerEventData e)
     {
+        StopCoroutine(floatCoroutine);
         Vector3 w = cam.ScreenToWorldPoint(e.position);
         w.z = transform.position.z;
         offset = transform.position - w;
@@ -50,6 +53,8 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     public void OnEndDrag(PointerEventData e)
     {
         Debug.Log("Drag ended");
+        offset = transform.position;
+        floatCoroutine = StartCoroutine(Float());
     }
 
     IEnumerator Float()
@@ -60,20 +65,22 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
             
             while (t < 1)
             {
-                yield return new WaitForEndOfFrame();
+                
                 transform.localPosition = offset + new Vector3(x_offset, y_offset, 0);
                 x_offset = Mathf.Sin(t);
-                y_offset = Mathf.Lerp(-1, 1, t);
+                y_offset = Mathf.Lerp(0, 1, t);
                 t += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
             }
 
             while (t > 0)
             {
-                yield return new WaitForEndOfFrame();
+                
                 transform.localPosition = offset + new Vector3(x_offset, y_offset, 0);
-                x_offset = Mathf.Lerp(-1, 1, t);
-                y_offset = Mathf.Lerp(-1, 1, t);
+                x_offset = Mathf.Lerp(0, 1, t);
+                y_offset = Mathf.Lerp(0, 1, t);
                 t -= Time.deltaTime;
+                yield return new WaitForEndOfFrame();
             }
 
             yield return new WaitForEndOfFrame();

@@ -5,6 +5,11 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text timer;
     [SerializeField] Transform clockParent;
+    [SerializeField] Transform lineParent;
+
+    [SerializeField] GameObject linePrefab;
+
+    [SerializeField] Transform centreClock;
 
     float sinkRate = 1f;
     
@@ -30,9 +35,13 @@ public class GameManager : MonoBehaviour
         UpdateMoney(-Time.deltaTime * sinkRate);
     }
 
-    public void AddClock(ShopItem clock)
+    public void AddClock(ShopItem clockItem)
     {
-        Instantiate(clock.prefab, clockParent);
-        UpdateMoney(-clock.price);
+        GameObject clock = Instantiate(clockItem.prefab, clockParent);
+        UpdateMoney(-clockItem.price);
+
+        Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
+        wire.startPoint = clock.transform;
+        wire.endPoint = centreClock;
     }
 }
