@@ -12,6 +12,7 @@ public class ShopUI : MonoBehaviour
 
     
     private List<ShopSlotUI> slots = new List<ShopSlotUI>();
+    private bool EndGame = false;
 
     void OnEnable()
     {
@@ -25,24 +26,31 @@ public class ShopUI : MonoBehaviour
 
     void HalftimeSwitch()
     {
-        addToShop(5, 9);
+        EndGame = true;
     }
 
     private void Start()
     {
-        addToShop(0, 4);
+        addToShop(0, 9);
     }
 
     private void addToShop(int start, int end)
     {
         ShopSlotUI slot = Instantiate(slotPrefab, slotParent);
-        slot.Setup(items[start], shop.Buy, true); 
+        slot.Setup(items[start], shop.Buy, true, EndGame); 
         slots.Add(slot);
 
-        for (int i = start + 1; i <= end; i++)
+        for (int i = start + 1; i <= 4; i++)
         {
             slot = Instantiate(slotPrefab, slotParent);
-            slot.Setup(items[i], shop.Buy, false); 
+            slot.Setup(items[i], shop.Buy, false, EndGame); 
+            slots.Add(slot);
+        }
+
+        for (int i = 5; i <= end; i++)
+        {
+            slot = Instantiate(slotPrefab, slotParent);
+            slot.Setup(items[i], shop.Buy, false, EndGame); 
             slots.Add(slot);
         }
     }
@@ -52,7 +60,7 @@ public class ShopUI : MonoBehaviour
         int i = 0;
         foreach (var slot in slots)
         {
-            slot.Refresh(shop.GetOwned(slot.Item), shop.Money, i <= shop.lastUnlock);
+            slot.Refresh(shop.GetOwned(slot.Item), shop.Money, i <= shop.lastUnlock, EndGame);
             i++;
         }
     }
