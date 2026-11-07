@@ -22,13 +22,13 @@ public class Shop : ScriptableObject
         }
         else
         {
-            HandleApproved();
+            HandleApproved(item);
         }
     }
 
-    private void HandleApproved()
+    private void HandleApproved(ShopItem item)
     {
-        gameManager.UpdateMoney(item.price);
+        gameManager.UpdateMoney(-item.price);
     }
     private void HandleDenied()
     {
