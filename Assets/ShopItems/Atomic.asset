@@ -15,6 +15,8 @@ MonoBehaviour:
   price: 100
   maxOwned: 1
   displayName: Atomic Clock
+  description: The most accurate time-keeping device invented by man. Used by scientists
+    to position satellites and to show off. It's the academic equivalent of a Patek.
   icon: {fileID: -3571624604119634730, guid: 6413241a60a5d994dab0dbb99baf308e, type: 3}
   soldOut: {fileID: 0}
   prefab: {fileID: 8940432626285181514, guid: 6171ffeda83f748039b62fe9d4666ee2, type: 3}

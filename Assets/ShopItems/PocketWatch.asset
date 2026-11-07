@@ -15,6 +15,7 @@ MonoBehaviour:
   price: 10
   maxOwned: 2
   displayName: Pocket Watch
+  description: Broken, old and crusty, but timeless. Get it? Time-less?
   icon: {fileID: -7586109583730292523, guid: 3a1a3ba7d6f19144dac8b1ac0f347c6c, type: 3}
   soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 8413707970400995581, guid: 446e3ebcdd9fe425fbc86d3509f14586, type: 3}
