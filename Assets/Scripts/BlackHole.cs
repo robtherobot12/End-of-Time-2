@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class BlackHole : MonoBehaviour, IPointerClickHandler
 {
     public float sinkRate;
-    float health = 10;
+    float health = 1;
 
     [SerializeField] GameObject linePrefab;
 
@@ -15,6 +16,13 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     void Awake()
     {
         gm = FindAnyObjectByType<GameManager>();
+    }
+
+    void SetHealth(float newHealth)
+    {
+        health = newHealth;
+        float scale = Mathf.Lerp(0.3f, 1f, health);
+        transform.localScale = new Vector3(scale, scale, 1);
     }
 
     public void SetWire(GameObject _wire)
@@ -31,8 +39,8 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData e)
     {
-        health -= 1;
-        if (health < 0)
+        SetHealth(health - 0.2f);
+        if (health <= 0)
         {
             // dead
             Destroy(wire);

@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     public void AddClock(ShopItem clockItem)
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
+        clock.transform.localPosition = GetRandomPosition();
         UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
@@ -90,7 +91,15 @@ public class GameManager : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
-        return new Vector3(Random.Range(-6, -3), Random.Range(-2, 2), 0);
+        if (Random.Range(0, 1f) >= 0.5f)
+        {
+            return new Vector3(Random.Range(-6, -3), Random.Range(-2, 2), 0);
+        }
+        else
+        {
+            return new Vector3(Random.Range(6, 3), Random.Range(-2, 2), 0);
+        }
+        
     }
 
     IEnumerator SpawnBlackHoles()
