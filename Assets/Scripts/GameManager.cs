@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     public void AddClock(ShopItem clockItem)
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
-        clock.transform.localPosition = GetRandomPosition();
+        clock.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
         UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
