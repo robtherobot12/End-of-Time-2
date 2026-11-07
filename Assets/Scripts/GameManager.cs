@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         UpdateMoney(-Time.deltaTime * sinkRate);
     }
 
-    public void AddClock(ClockData clock)
+    public void AddClock(ShopItem clock)
     {
         Instantiate(clock.prefab, clockParent);
         UpdateMoney(-clock.price);

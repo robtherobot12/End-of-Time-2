@@ -10,5 +10,6 @@ public class ShopItem : ScriptableObject
     public int maxOwned;
     public string displayName;
     public Sprite icon;
+    public GameObject prefab;
 
 }
