@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -8,8 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform lineParent;
 
     [SerializeField] GameObject linePrefab;
+    [SerializeField] GameObject blackHolePrefab;
 
-    [SerializeField] Transform centreClock;
+    public Transform centreClock;
 
     float sinkRate = 1f;
     
@@ -43,5 +45,28 @@ public class GameManager : MonoBehaviour
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
         wire.startPoint = clock.transform;
         wire.endPoint = centreClock;
+    }
+
+    public void IncreaseSinkRate(float multiplier)
+    {
+        sinkRate *= multiplier;
+    }
+
+    Vector3 GetRandomPosition()
+    {
+        return new Vector3(Random.Range(-6, -3), Random.Range(-2, 2), 0);
+    }
+
+    IEnumerator SpawnBlackHoles()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+
+            GameObject blackHole = Instantiate(blackHolePrefab, clockParent);
+            blackHole.transform.localPosition = GetRandomPosition();
+            GameObject wire = Instantiate(linePrefab, lineParent);
+            blackHole.GetComponent<BlackHole>().SetWire(wire);
+        }
     }
 }
