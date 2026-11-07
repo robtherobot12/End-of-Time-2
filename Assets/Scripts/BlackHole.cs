@@ -36,7 +36,7 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
         {
             // dead
             Destroy(wire);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
