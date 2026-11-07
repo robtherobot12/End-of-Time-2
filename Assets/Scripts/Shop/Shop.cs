@@ -10,13 +10,28 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] UpgradeChannel upgradeChannel;
     [SerializeField] EventChannel halftimeChannel;
+    public List<ShopItem> Items = new List<ShopItem>();
+    public void SetItems(List<ShopItem> list) => Items = list;
+    public const int EndgameStart = 5;
+    public int lastUnlock = 0;
+    public bool EndGame = false;
+
+    public bool IsUnlocked(int index)
+    {
+        return index <= lastUnlock && (index < EndgameStart || EndGame);
+    }
+
+    public bool IsSoldOut(ShopItem item)
+    {
+        // 0 = unlimited
+        return item.maxOwned > 0 && GetOwned(item) >= item.maxOwned;   
+    }
 
     
     private Dictionary<ShopItem, int> owned = new Dictionary<ShopItem, int>();
 
     public float Money => gameManager.GetMoney();
 
-    public int lastUnlock = 0;
 
     
     public int GetOwned(ShopItem item)
@@ -26,16 +41,12 @@ public class Shop : MonoBehaviour
 
     public void Buy(ShopItem item)
     {
-        if (Money < item.price || GetOwned(item) >= item.maxOwned)
-        {
-            // never really gets called but is a safety check.
-            HandleDenied();
+       int idx = Items.IndexOf(item);
+        if (Money < item.price || !IsUnlocked(idx) || IsSoldOut(item)) { 
+            HandleDenied(); 
+            return; 
         }
-        else
-        {
-            //HandleApproved(item);
-            upgradeChannel.Call(item);
-        }
+        upgradeChannel.Call(item); 
     }
 
     void OnEnable()
@@ -53,18 +64,18 @@ public class Shop : MonoBehaviour
     private void HandleApproved(ShopItem item)
     {
         owned[item] = GetOwned(item) + 1;
-        
+        int idx = Items.IndexOf(item);
+        if (idx == lastUnlock) lastUnlock++;
         Debug.Log("Item Bought yay");
     }
     private void HandleDenied()
     {
-
         Debug.Log("Cant buy item");
     }
 
     void HalftimeSwitch()
     {
-        // change stuff
+        EndGame = true;
     }
 
 }

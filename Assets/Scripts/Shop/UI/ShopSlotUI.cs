@@ -14,36 +14,29 @@ public class ShopSlotUI : MonoBehaviour
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text priceText;
 
+    private bool isEndgameItem;
+
     public ShopItem Item { get; private set; }
 
 
     
-    public void Setup(ShopItem item, Action<ShopItem> onClick, bool unlocked, bool endGame)
+    public void Setup(ShopItem item, Action<ShopItem> onClick, bool isEndgameItem)
     {
         Item = item;
-
+        this.isEndgameItem = isEndgameItem;
         nameText.text = item.displayName;
         priceText.text = item.price.ToString();
         icon.sprite = item.icon;
         icon.enabled = item.icon != null;
-        if (endGame)
-        {
-            mysteryImage.enabled = true;
-        }
-        else
-        {
-            soldOutImage.enabled = unlocked;
-        }
-        
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => onClick(Item));
     }
 
-    public void Refresh(int owned, float money, bool unlocked, bool endGame)
+    public void Refresh(float money, bool unlocked, bool endGame, bool soldOut)
     {
-        bool soldOut = owned >= Item.maxOwned;
-        button.interactable = !soldOut && money >= Item.price && unlocked;
-        soldOutImage.enabled = soldOut || !unlocked;
-        mysteryImage.enabled = !endGame;
+        bool mystery = isEndgameItem && !endGame;
+        mysteryImage.enabled = mystery;
+        soldOutImage.enabled = !mystery && (!unlocked || soldOut); 
+        button.interactable = !mystery && unlocked && !soldOut && money >= Item.price;
     }
 }

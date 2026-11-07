@@ -12,56 +12,25 @@ public class ShopUI : MonoBehaviour
 
     
     private List<ShopSlotUI> slots = new List<ShopSlotUI>();
-    private bool EndGame = false;
 
-    void OnEnable()
+    private void Awake()
     {
-        halftimeChannel._event.AddListener(HalftimeSwitch);
-    }
-
-    void OnDisable()
-    {
-        halftimeChannel._event.RemoveListener(HalftimeSwitch);
-    }
-
-    void HalftimeSwitch()
-    {
-        EndGame = true;
+        shop.SetItems(items);
     }
 
     private void Start()
     {
-        addToShop(0, 9);
-    }
-
-    private void addToShop(int start, int end)
-    {
-        ShopSlotUI slot = Instantiate(slotPrefab, slotParent);
-        slot.Setup(items[start], shop.Buy, true, EndGame); 
-        slots.Add(slot);
-
-        for (int i = start + 1; i <= 4; i++)
+        for (int i = 0; i < shop.Items.Count; i++)
         {
-            slot = Instantiate(slotPrefab, slotParent);
-            slot.Setup(items[i], shop.Buy, false, EndGame); 
-            slots.Add(slot);
-        }
-
-        for (int i = 5; i <= end; i++)
-        {
-            slot = Instantiate(slotPrefab, slotParent);
-            slot.Setup(items[i], shop.Buy, false, EndGame); 
+            var slot = Instantiate(slotPrefab, slotParent);
+            slot.Setup(shop.Items[i], shop.Buy, isEndgameItem: i >= Shop.EndgameStart);
             slots.Add(slot);
         }
     }
 
     private void Update()
     {
-        int i = 0;
-        foreach (var slot in slots)
-        {
-            slot.Refresh(shop.GetOwned(slot.Item), shop.Money, i <= shop.lastUnlock, EndGame);
-            i++;
-        }
+        for (int i = 0; i < slots.Count; i++)
+            slots[i].Refresh(shop.Money, shop.IsUnlocked(i), shop.EndGame, shop.IsSoldOut(shop.Items[i]));
     }
 }
