@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text timer;
+
+    [SerializeField] TMP_Text damageMultiplier;
     [SerializeField] Transform clockParent;
     [SerializeField] Transform lineParent;
 
@@ -12,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject blackHolePrefab;
 
     public Transform centreClock;
+
+    public bool endGame = false;
 
     float sinkRate = 1f;
     
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         money += change;
         timer.text = Mathf.RoundToInt(money).ToString();
+        damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
     }
 
     public float GetMoney()
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateMoney(-Time.deltaTime * sinkRate);
+        
     }
 
     public void AddClock(ShopItem clockItem)
