@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text timer;
+    [SerializeField] Transform clockParent;
 
     float sinkRate = 1f;
     
@@ -27,5 +28,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateMoney(-Time.deltaTime * sinkRate);
+    }
+
+    public void AddClock(GameObject clock)
+    {
+        Instantiate(clock, clockParent);
     }
 }
