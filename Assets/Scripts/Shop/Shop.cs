@@ -15,7 +15,7 @@ public class Shop : ScriptableObject
     public void Buy(ShopItem item)
     {
 
-        if (gameManager.GetMoney() < item.getPrice())
+        if (gameManager.GetMoney() < item.price)
         {
             HandleDenied();
             return;
@@ -28,7 +28,7 @@ public class Shop : ScriptableObject
 
     private void HandleApproved()
     {
-        gameManager.UpdateMoney(item.getPrice());
+        gameManager.UpdateMoney(item.price);
     }
     private void HandleDenied()
     {

@@ -1,12 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    [SerializeField] private float price;
+    public float price;
+    public int maxOwned;
+    public string displayName;
+    public Sprite icon;
 
-    public float getPrice()
-    {
-        return price;
-    }
 }
