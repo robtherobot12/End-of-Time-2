@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
-  m_Name: item2
+  m_Name: PocketWatch
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 2
-  maxOwned: 1
-  displayName: wowcool
-  icon: {fileID: 0}
-  soldOut: {fileID: 0}
-  prefab: {fileID: 0}
+  price: 10
+  maxOwned: 2
+  displayName: Pocket Watch
+  icon: {fileID: -7586109583730292523, guid: 3a1a3ba7d6f19144dac8b1ac0f347c6c, type: 3}
+  soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 8413707970400995581, guid: 446e3ebcdd9fe425fbc86d3509f14586, type: 3}
