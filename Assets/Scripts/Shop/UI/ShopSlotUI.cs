@@ -28,7 +28,7 @@ public class ShopSlotUI : MonoBehaviour
         button.onClick.AddListener(() => onClick(Item));
     }
 
-    public void Refresh(int owned, int money)
+    public void Refresh(int owned, float money)
     {
         button.interactable = money >= Item.price && owned < Item.maxOwned;
     }
