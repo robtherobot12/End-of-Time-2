@@ -23,6 +23,7 @@ public class Shop : MonoBehaviour
 
         if (Money < item.price || GetOwned(item) >= item.maxOwned)
         {
+            // never really gets called but is a safety check.
             HandleDenied();
         }
         else
@@ -40,7 +41,8 @@ public class Shop : MonoBehaviour
     }
     private void HandleDenied()
     {
-        
+
+        Debug.Log("Cant buy item");
     }
 
 }
