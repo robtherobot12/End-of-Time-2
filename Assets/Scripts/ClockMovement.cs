@@ -24,12 +24,6 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
         floatCoroutine = StartCoroutine(Float());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnPointerClick(PointerEventData e)
     {
         Debug.Log("Clicked " + name);
@@ -55,6 +49,11 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
         Debug.Log("Drag ended");
         offset = transform.position;
         floatCoroutine = StartCoroutine(Float());
+    }
+
+    public void SetOffset(Vector3 _offset)
+    {
+        offset = _offset;
     }
 
     IEnumerator Float()

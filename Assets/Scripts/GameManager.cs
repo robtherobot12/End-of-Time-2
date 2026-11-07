@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     float sinkRate = 1f;
     
     float money;
+
+    void Start()
+    {
+        StartCoroutine(SpawnBlackHoles());
+    }
     
     public void ClickClock() {
         UpdateMoney(1);
@@ -49,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseSinkRate(float multiplier)
     {
-        sinkRate *= multiplier;
+        sinkRate += multiplier;
     }
 
     Vector3 GetRandomPosition()
@@ -63,10 +68,10 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
 
-            GameObject blackHole = Instantiate(blackHolePrefab, clockParent);
-            blackHole.transform.localPosition = GetRandomPosition();
+            BlackHole blackHole = Instantiate(blackHolePrefab, clockParent).GetComponent<BlackHole>();
+            blackHole.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
             GameObject wire = Instantiate(linePrefab, lineParent);
-            blackHole.GetComponent<BlackHole>().SetWire(wire);
+            blackHole.SetWire(wire);
         }
     }
 }
