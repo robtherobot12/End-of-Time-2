@@ -49,30 +49,31 @@ public class BlackHoleMovement : MonoBehaviour, IPointerClickHandler
         {
             float t = Time.time;
 
-        // PerlinNoise returns 0..1, remap to -1..1
-        float x = Mathf.PerlinNoise(seedA.x + t * speedX, seedA.y) * 2f - 1f;
-        float y = Mathf.PerlinNoise(seedB.x, seedB.y + t * speedY) * 2f - 1f;
+            // PerlinNoise returns 0..1, remap to -1..1
+            float x = Mathf.PerlinNoise(seedA.x + t * speedX, seedA.y) * 2f - 1f;
+            float y = Mathf.PerlinNoise(seedB.x, seedB.y + t * speedY) * 2f - 1f;
 
-        Vector2 offset = new Vector2(x, y);
+            Vector2 offset = new Vector2(x, y);
 
-        if (addSecondLayer)
-        {
-            float dx = Mathf.PerlinNoise(seedB.x + t * speedX * detailSpeedMult, seedA.y + 50f) * 2f - 1f;
-            float dy = Mathf.PerlinNoise(seedA.x + 50f, seedB.y + t * speedY * detailSpeedMult) * 2f - 1f;
-            offset += new Vector2(dx, dy) * detailAmount;
-        }
+            if (addSecondLayer)
+            {
+                float dx = Mathf.PerlinNoise(seedB.x + t * speedX * detailSpeedMult, seedA.y + 50f) * 2f - 1f;
+                float dy = Mathf.PerlinNoise(seedA.x + 50f, seedB.y + t * speedY * detailSpeedMult) * 2f - 1f;
+                offset += new Vector2(dx, dy) * detailAmount;
+            }
 
-        // Keep it inside a circle rather than a square
-        offset = Vector2.ClampMagnitude(offset, 1f);
+            // Keep it inside a circle rather than a square
+            offset = Vector2.ClampMagnitude(offset, 1f);
 
-        transform.localPosition = center + (Vector3)(offset * radius);
+            transform.localPosition = center + (Vector3)(offset * radius);
         }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.localPosition = new Vector3(-5,0,0);
+        transform.localPosition = center;
+        //transform.localPosition = new Vector3(-5,0,0);
         //floatCoroutine = StartCoroutine(Float());
         isWobbling = true;
     }

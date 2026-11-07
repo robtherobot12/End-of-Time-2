@@ -73,7 +73,7 @@ public class ClockMovement : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.localPosition = new Vector3(-5,0,0);
+        transform.localPosition = center;
         //floatCoroutine = StartCoroutine(Float());
         isWobbling = true;
     }
