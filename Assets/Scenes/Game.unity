@@ -651,8 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb339e32d2e656d87f3c06bee34fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  upgradeChannel: {fileID: 0}
-  halftimeChannel: {fileID: 0}
+  upgradeChannel: {fileID: 11400000, guid: b156ab3ff4481671f8cf995ce26da55a, type: 2}
+  halftimeChannel: {fileID: 11400000, guid: df2771871344d257abe6dab300a7d046, type: 2}
   timer: {fileID: 1815675702}
   damageMultiplier: {fileID: 1828195783}
   clockParent: {fileID: 1527774370}
@@ -1618,8 +1618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
   gameManager: {fileID: 1471888222}
-  upgradeChannel: {fileID: 0}
-  halftimeChannel: {fileID: 0}
+  upgradeChannel: {fileID: 11400000, guid: b156ab3ff4481671f8cf995ce26da55a, type: 2}
+  halftimeChannel: {fileID: 11400000, guid: df2771871344d257abe6dab300a7d046, type: 2}
 --- !u!4 &2046754577
 Transform:
   m_ObjectHideFlags: 0
