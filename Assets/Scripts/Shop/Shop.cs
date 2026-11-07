@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Mathematics;
 
 public class Shop : MonoBehaviour 
 
@@ -8,6 +9,7 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] UpgradeChannel upgradeChannel;
+    [SerializeField] EventChannel halftimeChannel;
 
     
     private Dictionary<ShopItem, int> owned = new Dictionary<ShopItem, int>();
@@ -36,11 +38,13 @@ public class Shop : MonoBehaviour
     void OnEnable()
     {
         upgradeChannel._event.AddListener(HandleApproved);
+        halftimeChannel._event.AddListener(HalftimeSwitch);
     }
 
     void OnDisable()
     {
         upgradeChannel._event.RemoveListener(HandleApproved);
+        halftimeChannel._event.RemoveListener(HalftimeSwitch);
     }
 
     private void HandleApproved(ShopItem item)
@@ -54,6 +58,11 @@ public class Shop : MonoBehaviour
     {
 
         Debug.Log("Cant buy item");
+    }
+
+    void HalftimeSwitch()
+    {
+        // change stuff
     }
 
 }

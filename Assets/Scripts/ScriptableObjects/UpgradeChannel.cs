@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Event Channel", menuName = "ScriptableObjects/Events")]
+[CreateAssetMenu(fileName = "Upgrade Channel", menuName = "ScriptableObjects/Upgrade")]
 public class UpgradeChannel : ScriptableObject
 {
     public UnityEvent<ShopItem> _event;

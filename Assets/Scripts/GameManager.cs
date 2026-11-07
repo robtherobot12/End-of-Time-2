@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] UpgradeChannel upgradeChannel;
+    [SerializeField] EventChannel halftimeChannel;
+    
     [SerializeField] TMP_Text timer;
 
     [SerializeField] TMP_Text damageMultiplier;
@@ -24,6 +27,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnBlackHoles());
+    }
+
+    void OnEnable()
+    {
+        upgradeChannel._event.AddListener(HandleBuy);
+    }
+
+    void OnDisable()
+    {
+        upgradeChannel._event.RemoveListener(HandleBuy);
+    }
+
+    void HandleBuy(ShopItem item)
+    {
+        UpdateMoney(-item.price);
+        AddClock(item);
+        
+        if (item.displayName == "end idk")
+        {
+            // start transition
+            halftimeChannel._event.Invoke();
+        }
     }
     
     public void ClickClock() {
