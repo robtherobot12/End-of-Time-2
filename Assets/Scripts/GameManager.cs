@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         UpdateMoney(-item.price);
         AddClock(item);
         
-        if (item.displayName == "end idk")
+        if (item.displayName == "Rolex")
         {
             // start transition
             halftimeChannel._event.Invoke();

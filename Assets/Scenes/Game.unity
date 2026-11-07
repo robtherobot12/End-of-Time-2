@@ -1526,6 +1526,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f345b526091c740a896c62ee61eae2ed, type: 2}
   - {fileID: 11400000, guid: 5cf554b09301345669d21706662a9b74, type: 2}
   - {fileID: 11400000, guid: 611ddbb095ca645a1b3b4ee815e7b10d, type: 2}
+  halftimeChannel: {fileID: 11400000, guid: df2771871344d257abe6dab300a7d046, type: 2}
 --- !u!1 &1888150171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1621,7 @@ MonoBehaviour:
   gameManager: {fileID: 1471888222}
   upgradeChannel: {fileID: 11400000, guid: b156ab3ff4481671f8cf995ce26da55a, type: 2}
   halftimeChannel: {fileID: 11400000, guid: df2771871344d257abe6dab300a7d046, type: 2}
+  lastUnlock: 0
 --- !u!4 &2046754577
 Transform:
   m_ObjectHideFlags: 0

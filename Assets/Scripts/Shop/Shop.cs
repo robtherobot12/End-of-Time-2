@@ -13,7 +13,10 @@ public class Shop : MonoBehaviour
 
     
     private Dictionary<ShopItem, int> owned = new Dictionary<ShopItem, int>();
+
     public float Money => gameManager.GetMoney();
+
+    public int lastUnlock = 0;
 
     
     public int GetOwned(ShopItem item)
@@ -49,9 +52,8 @@ public class Shop : MonoBehaviour
 
     private void HandleApproved(ShopItem item)
     {
-        //gameManager.UpdateMoney(-item.price);
         owned[item] = GetOwned(item) + 1;
-        //gameManager.AddClock(item);
+        
         Debug.Log("Item Bought yay");
     }
     private void HandleDenied()
