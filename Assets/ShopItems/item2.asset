@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: item2
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 0
-  maxOwned: 0
-  displayName: 
+  price: 2
+  maxOwned: 1
+  displayName: wowcool
   icon: {fileID: 0}
+  soldOut: {fileID: 0}
   prefab: {fileID: 0}
