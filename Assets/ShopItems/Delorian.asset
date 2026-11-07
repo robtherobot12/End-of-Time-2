@@ -15,6 +15,7 @@ MonoBehaviour:
   price: 1000
   maxOwned: 1
   displayName: Delorian
+  description: Great Scott!
   icon: {fileID: 7510980369777312249, guid: 6ca41e836e3ec31479d9b14f9aed0a58, type: 3}
   soldOut: {fileID: 0}
   prefab: {fileID: 5863573304682558912, guid: 1aaf97105b2db4f12ada5fe89f82697a, type: 3}

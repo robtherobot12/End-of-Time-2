@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   price: 10
   maxOwned: 1
-  displayName: Hour Glass
+  displayName: Sands of Time
+  description: This strange, glowing hourglass was taken from an antiques collector
+    by border control. They were all found dead.
   icon: {fileID: 8921600837666019768, guid: e171a10e8fc704a478a18b056e1e6e7c, type: 3}
   soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 7782884121441752466, guid: f8ec30fe7cea44f4d89034dc65be4c66, type: 3}

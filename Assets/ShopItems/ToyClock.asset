@@ -15,6 +15,8 @@ MonoBehaviour:
   price: 10
   maxOwned: 2
   displayName: Toy Clock
+  description: The type of thing you might find in a nursery or primary school. Covered
+    in dried food.
   icon: {fileID: -8433043718638216072, guid: 56d40b2cba98c8345bf939e832ab7a46, type: 3}
   soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 1923626881983900789, guid: 5204ee00b2b9f4d21aa1d7bdc1b7be37, type: 3}

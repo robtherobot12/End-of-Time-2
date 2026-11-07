@@ -15,6 +15,8 @@ MonoBehaviour:
   price: 12
   maxOwned: 1
   displayName: Rolex
+  description: Very fancy. It's a symbol of status and wealth. Money is time and
+    time is money - and with this, it's clear you've got both.
   icon: {fileID: -8657214778110100361, guid: 76e5f0879f8053243b5d5c5bf61a6de1, type: 3}
   soldOut: {fileID: 0}
   prefab: {fileID: 1207975861536247456, guid: 154c23c3eadea46f78e35d726933c221, type: 3}

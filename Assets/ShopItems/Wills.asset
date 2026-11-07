@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   price: 13
   maxOwned: 1
-  displayName: Wills Memorial
+  displayName: Evil Wills Memorial
+  description: It's really big and really evil. Brave souls who venture into this
+    building leave in a zombified state, dressed in ominous burgundy robes. There's
+    tentacles coming out of it!
   icon: {fileID: 1729554418863699983, guid: 26adb66d87b88804d90b9cc9d7c5f896, type: 3}
   soldOut: {fileID: 0}
   prefab: {fileID: 2761113837948093073, guid: d068840c3018540b8b0b09fa370a762b, type: 3}

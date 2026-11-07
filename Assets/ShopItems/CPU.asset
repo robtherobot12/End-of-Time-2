@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   price: 10
   maxOwned: 2
-  displayName: Hello World
+  displayName: THE SUPERCHIP
+  description: To fund this, debt worth the GDP of several small countries was issued.
+    It was then packaged into AAA investment grade products and subsequently caused
+    a horrific market crash.
   icon: {fileID: 4394315765460564044, guid: 94111549eb4cc36459f6c0e682a48d2e, type: 3}
   soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 789753845456008946, guid: c36ee55938040497698ccf4b42fe8334, type: 3}
