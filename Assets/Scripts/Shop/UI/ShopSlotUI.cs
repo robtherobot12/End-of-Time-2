@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +9,7 @@ public class ShopSlotUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Button button;
     [SerializeField] private Image icon;
+    [SerializeField] private Image soldOutImage; 
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text priceText;
 
@@ -28,8 +28,10 @@ public class ShopSlotUI : MonoBehaviour
         button.onClick.AddListener(() => onClick(Item));
     }
 
-    public void Refresh(int owned, int money)
+    public void Refresh(int owned, float money)
     {
-        button.interactable = money >= Item.price && owned < Item.maxOwned;
+        bool soldOut = owned >= Item.maxOwned;
+        button.interactable = !soldOut && money >= Item.price;
+        soldOutImage.enabled = soldOut;
     }
 }

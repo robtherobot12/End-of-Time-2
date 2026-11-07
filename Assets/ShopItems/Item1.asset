@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
+  m_Name: Item1
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItem
+  price: 10
+  maxOwned: 2
+  displayName: Hello World
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  soldOut: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 1923626881983900789, guid: 5204ee00b2b9f4d21aa1d7bdc1b7be37, type: 3}
