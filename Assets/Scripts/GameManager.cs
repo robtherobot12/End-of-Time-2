@@ -1,11 +1,31 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public double money;
+    [SerializeField] TMP_Text timer;
+
+    float sinkRate = 1f;
+    
+    float money;
     
     public void ClickClock() {
-        money += 1;
-        Debug.Log(money);
+        UpdateMoney(1);
+    }
+
+    public void UpdateMoney(float change)
+    {
+        money += change;
+        timer.text = Mathf.RoundToInt(money).ToString();
+    }
+
+    public float GetMoney()
+    {
+        return money;
+    }
+
+    void Update()
+    {
+        UpdateMoney(-Time.deltaTime * sinkRate);
     }
 }
