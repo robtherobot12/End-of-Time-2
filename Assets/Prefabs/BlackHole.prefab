@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1350846234978532802, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_Name
@@ -71,12 +71,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8489762433071374920, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
     - {fileID: 4468738622004821997, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+    - {fileID: 1350846234978532802, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 910926619085255059}
+    - targetCorrespondingSourceObject: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2504644792460372561}
   m_SourcePrefab: {fileID: 100100000, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
 --- !u!1 &3253079844109756817 stripped
 GameObject:
@@ -97,3 +101,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   sinkRate: 0
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
+--- !u!114 &2504644792460372561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3253079844109756817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e9626bd90704ac4ab5432db920d974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlackHoleMovement
+  radius: 0.4
+  speed: 0.6
+  speedVariance: 0.3
+  addSecondLayer: 1
+  detailAmount: 0.15
+  detailSpeedMult: 2.7

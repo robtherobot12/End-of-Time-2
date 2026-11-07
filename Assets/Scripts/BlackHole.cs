@@ -21,7 +21,7 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     void SetHealth(float newHealth)
     {
         health = newHealth;
-        float scale = Mathf.Lerp(0.3f, 1f, health);
+        float scale = Mathf.Lerp(0.5f, 1f, health);
         transform.localScale = new Vector3(scale, scale, 1);
     }
 
