@@ -15,6 +15,7 @@ MonoBehaviour:
   price: 2
   maxOwned: 1
   displayName: Grand Father Clock
+  description: It's been through several world wars, marriages, and market bubbles.
   icon: {fileID: -6029575047621674897, guid: ee910700a6b2c22429a7e4c21828b8ad, type: 3}
   soldOut: {fileID: 0}
   prefab: {fileID: 2598413368369654924, guid: 68b7bb1a7ab5d4e03bf75a5d7f72f782, type: 3}
