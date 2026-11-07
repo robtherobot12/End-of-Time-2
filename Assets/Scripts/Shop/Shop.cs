@@ -1,17 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Shop", menuName = "Shop/Shop")]
-public class Shop : ScriptableObject
+public class Shop : MonoBehaviour 
 
 
 {
-
-    public GameManager gameManager;
-    // [SerializeField] private ShopCatalog catalog;
-    // [SerializeField] private Inventory inventory;
-    [SerializeField] private ShopItem item;
-    
+    [SerializeField] private GameManager gameManager;
+  
     public void Buy(ShopItem item)
     {
 
@@ -34,12 +29,5 @@ public class Shop : ScriptableObject
     {
         
     }
-
-    private void FailPurchase()
-    {
-        
-    }
-
-
 
 }
