@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6671822708984642819, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7510980369777312249, guid: 6ca41e836e3ec31479d9b14f9aed0a58, type: 3}
     - target: {fileID: 6929346456002256277, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 6929346456002256277, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489762433071374920, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: pulseAmount
+      value: 100000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

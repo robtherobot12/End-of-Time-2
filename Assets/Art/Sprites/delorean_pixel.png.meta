@@ -116,12 +116,12 @@ TextureImporter:
       name: delorean_pixel_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 16
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f6a72f96cee7dd0ff876126a4d690688
     internalID: 0
     vertices: []
     indices: 

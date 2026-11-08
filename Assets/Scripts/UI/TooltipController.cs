@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class TooltipController : MonoBehaviour
 {
     public UpgradeChannel showToolTipChannel;
@@ -12,16 +14,42 @@ public class TooltipController : MonoBehaviour
     public TMP_Text price;
 
     RectTransform rect;
+    CanvasGroup group;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        showToolTipChannel._event.AddListener((item) => UpdateInfo(item));
-        hideTooltipChannel._event.AddListener(() => gameObject.SetActive(false));
         rect = GetComponent<RectTransform>();
+        group = GetComponent<CanvasGroup>();
+        group.blocksRaycasts = false;   // tooltip must never steal the mouse
+        Hide();
     }
 
-    // Update is called once per frame
+    void OnEnable()
+    {
+        showToolTipChannel._event.AddListener(Show);
+        hideTooltipChannel._event.AddListener(Hide);
+    }
+
+    void OnDisable()
+    {
+        showToolTipChannel._event.RemoveListener(Show);
+        hideTooltipChannel._event.RemoveListener(Hide);
+    }
+
+    void Show(ShopItem item)
+    {
+        itemName.text = item.displayName;
+        description.text = item.description;
+        price.text = item.price.ToString();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+        group.alpha = 1f;
+    }
+
+    void Hide()
+    {
+        group.alpha = 0f;
+    }
+
     void Update()
     {
         Vector2 pos = Mouse.current.position.ReadValue();
@@ -29,12 +57,5 @@ public class TooltipController : MonoBehaviour
 
         rect.pivot = new Vector2(rightHalf ? 1f : 0f, rect.pivot.y);
         transform.position = pos;
-    }
-
-    void UpdateInfo(ShopItem item)
-    {
-        itemName.text = item.displayName;
-        description.text = item.description;
-        price.text = item.price.ToString();
     }
 }
