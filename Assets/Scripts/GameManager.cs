@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         ("universe age",  "universe ages", 4.354859e17),
     };
 
-    string FormatTime(double seconds)
+    public static string FormatTime(double seconds)
     {
         int i = 0;
         while (i < timeUnits.Length - 1 && seconds >= timeUnits[i + 1].seconds)
