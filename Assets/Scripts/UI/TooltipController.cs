@@ -15,12 +15,14 @@ public class TooltipController : MonoBehaviour
 
     RectTransform rect;
     CanvasGroup group;
+    Canvas canvas; 
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
         group = GetComponent<CanvasGroup>();
-        group.blocksRaycasts = false;   // tooltip must never steal the mouse
+        canvas = GetComponentInParent<Canvas>().rootCanvas;
+        group.blocksRaycasts = false;
         Hide();
     }
 
@@ -51,11 +53,16 @@ public class TooltipController : MonoBehaviour
     }
 
     void Update()
-    {
-        Vector2 pos = Mouse.current.position.ReadValue();
-        bool rightHalf = pos.x > Screen.width * 0.5f;
+        {
+            Vector2 pos = Mouse.current.position.ReadValue();
+            bool rightHalf = pos.x > Screen.width * 0.5f;
+            rect.pivot = new Vector2(rightHalf ? 1f : 0f, rect.pivot.y);
 
-        rect.pivot = new Vector2(rightHalf ? 1f : 0f, rect.pivot.y);
-        transform.position = pos;
-    }
+            // Overlay canvases have no camera; Screen Space - Camera ones do
+            Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                (RectTransform)rect.parent, pos, cam, out Vector2 local);
+            rect.localPosition = local;   // keeps z on the canvas plane
+        }
 }

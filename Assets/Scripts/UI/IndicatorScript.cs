@@ -17,7 +17,7 @@ public class IndicatorScript : MonoBehaviour
     {
         text.text = "+" + GameManager.FormatTime(amount);
         canIndicate = true;
-        targetPos = transform.position + targetOffset;
+        targetPos = transform.localPosition + targetOffset;
         text.CrossFadeAlpha(0f, fadeTime, true);
         Destroy(gameObject, fadeTime);
     }
@@ -26,7 +26,7 @@ public class IndicatorScript : MonoBehaviour
     {
         if(canIndicate)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, lerpVal);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, lerpVal);
         }
     }
 }

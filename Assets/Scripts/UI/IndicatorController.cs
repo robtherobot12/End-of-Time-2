@@ -19,7 +19,15 @@ public class IndicatorController : MonoBehaviour
     public void CreateIndicator(float amount)
     {
         Vector2 pos = Mouse.current.position.ReadValue();
-        GameObject indicator = Instantiate(indicatorPrefab, pos, Quaternion.identity, transform);
+
+        Canvas canvas = GetComponentInParent<Canvas>().rootCanvas;
+        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            (RectTransform)transform, pos, cam, out Vector2 local);
+
+        GameObject indicator = Instantiate(indicatorPrefab, transform);
+        indicator.transform.localPosition = local;
         indicator.GetComponent<IndicatorScript>().Activate(amount);
     }
+
 }

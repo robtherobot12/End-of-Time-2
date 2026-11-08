@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         money += change;
         timer.text = FormatTime(Mathf.Max(0f, money));
-        damageMultiplier.text = $"{sinkRate:0.#} DPS";   
+        damageMultiplier.text = FormatTime(sinkRate) + " of DPS";   
 
         if (money < 0)
         {
