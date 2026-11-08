@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8a33ef3a24847b8b3e42460472041f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  image: {fileID: 7411541133147413807}
+  flashColor: {r: 0.8820755, g: 0, b: 0, a: 0.74509805}
   colorA: {r: 0.28706682, g: 0, b: 0.5283019, a: 1}
   colorB: {r: 0.46046403, g: 0, b: 0.8301887, a: 1}
   pulseColor: {r: 0.8254717, g: 0, b: 0, a: 1}
@@ -241,3 +243,8 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!212 &7411541133147413807 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6671822708984642819, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+  m_PrefabInstance: {fileID: 4200739165909508140}
+  m_PrefabAsset: {fileID: 0}
