@@ -159,7 +159,7 @@ MonoBehaviour:
   brightnessSteps: 4
   starColour: {r: 1, g: 1, b: 1, a: 1}
   depthLayers: 3
-  maxOffsetPixels: 3
+  maxOffsetPixels: 10
   smoothing: 4
   shootingStars: 0
   shootingStarInterval: {x: 8, y: 20}
@@ -614,6 +614,10 @@ PrefabInstance:
     - target: {fileID: 3682056784131837140, guid: 3e222922a24476fa794dcb01316c5ebb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486454865510134519, guid: 3e222922a24476fa794dcb01316c5ebb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
