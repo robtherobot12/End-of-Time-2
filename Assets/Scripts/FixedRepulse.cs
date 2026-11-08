@@ -15,7 +15,7 @@ public class FixedRepulse : MonoBehaviour
         {
             if (ignoreBlackHole && other.isBlackHole) continue;
             
-            Vector2 dir = other.rb.position - new Vector2(transform.localPosition.x, transform.localPosition.y);
+            Vector2 dir = other.rb.position - new Vector2(transform.position.x, transform.position.y);
             float distSq = dir.sqrMagnitude;
             if (distSq > maxRange * maxRange) continue;
 

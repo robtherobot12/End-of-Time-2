@@ -4,19 +4,22 @@ using UnityEngine.InputSystem;
 public class IndicatorController : MonoBehaviour
 {
     public GameObject indicatorPrefab;
-    public EventChannel indicatorEvent;
+    public FloatChannel indicatorEvent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        indicatorEvent?._event.AddListener(() => CreateIndicator());
+    void OnEnable()  
+    { 
+        indicatorEvent._event.AddListener(CreateIndicator); 
+    }
+    void OnDisable() 
+    { 
+        indicatorEvent._event.RemoveListener(CreateIndicator); 
     }
 
-    public void CreateIndicator()
+    public void CreateIndicator(float amount)
     {
         Vector2 pos = Mouse.current.position.ReadValue();
-        GameObject indicator = Instantiate(indicatorPrefab, pos, Quaternion.identity);
-        indicator.GetComponent<IndicatorScript>().Activate(1);
-        indicator.transform.SetParent(transform);
+        GameObject indicator = Instantiate(indicatorPrefab, pos, Quaternion.identity, transform);
+        indicator.GetComponent<IndicatorScript>().Activate(amount);
     }
 }
