@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject linePrefab;
     [SerializeField] GameObject blackHolePrefab;
+    [SerializeField] private EventChannel indicator;
 
     public Transform centreClock;
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     
     public void ClickClock() {
         UpdateMoney(1);
+        indicator.Call();
     }
 
     private void Dead()

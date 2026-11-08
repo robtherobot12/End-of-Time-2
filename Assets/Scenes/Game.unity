@@ -159,7 +159,7 @@ MonoBehaviour:
   brightnessSteps: 4
   starColour: {r: 1, g: 1, b: 1, a: 1}
   depthLayers: 3
-  maxOffsetPixels: 3
+  maxOffsetPixels: 10
   smoothing: 4
   shootingStars: 0
   shootingStarInterval: {x: 8, y: 20}
@@ -320,10 +320,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.083333336
     y: 0
     width: 1
-    height: 1
+    height: 1.2722222
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -615,6 +615,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5486454865510134519, guid: 3e222922a24476fa794dcb01316c5ebb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -875,6 +879,7 @@ RectTransform:
   - {fileID: 663485082}
   - {fileID: 748919442}
   - {fileID: 522248405}
+  - {fileID: 1319328573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -882,6 +887,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1319328572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319328573}
+  - component: {fileID: 1319328574}
+  m_Layer: 5
+  m_Name: Indicators
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1319328573
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319328572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1234706493}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1319328574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319328572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a09bddcaca23941b334c5f3a3cb6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IndicatorController
+  indicatorPrefab: {fileID: 5409940742799301316, guid: ef0692350e3f71f4783bac915cc673b2, type: 3}
+  indicatorEvent: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
 --- !u!1 &1372808110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1111,7 @@ MonoBehaviour:
   lineParent: {fileID: 1527774370}
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
   blackHolePrefab: {fileID: 3253079844109756817, guid: 6bc47f38323430f40aa808c6639060c8, type: 3}
+  indicator: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
   centreClock: {fileID: 1567843216}
   endGame: 0
 --- !u!4 &1471888223

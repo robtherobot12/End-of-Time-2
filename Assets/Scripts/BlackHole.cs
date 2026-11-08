@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class BlackHole : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] Color colorA, colorB, pulseColor, sparkColor;
+    
     public float sinkRate;
     float health = 1;
 
@@ -28,8 +31,17 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     public void SetWire(GameObject _wire)
     {
         wire = _wire;
-        wire.GetComponent<Wire>().startPoint = transform;
-        wire.GetComponent<Wire>().endPoint = gm.centreClock;
+        Wire wireComponent = wire.GetComponent<Wire>();
+        wireComponent.startPoint = transform;
+        wireComponent.endPoint = gm.centreClock;
+        /*wireComponent.wireColourA = colorA;
+        wireComponent.wireColourB = colorB;
+        wireComponent.pulseColour = pulseColor;
+        wireComponent.sparkColour = sparkColor;*/
+        wireComponent.wireColourA = pulseColor;
+        wireComponent.wireColourB = sparkColor;
+        wireComponent.pulseColour = colorA;
+        wireComponent.sparkColour = colorB;
     }
 
     void Update()
