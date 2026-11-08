@@ -321,15 +321,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5755209
+    x: 0
     y: 0
-    width: 0.33333334
-    height: 0.65925926
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5625
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1390,7 +1390,33 @@ MonoBehaviour:
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
   blackHolePrefab: {fileID: 3253079844109756817, guid: 6bc47f38323430f40aa808c6639060c8, type: 3}
   indicator: {fileID: 11400000, guid: 038d5c87c84424700ac4a9080e074272, type: 2}
-  addAmount: 0
+  baseAddAmount: 1
+  clicksToBreakEven: 4
+  difficultyMultiplier: 1
+  difficultyOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.001
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 300
+      value: 0.7
+      inSlope: -0.001
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   centreClock: {fileID: 1567843216}
   endGame: 0
 --- !u!4 &1471888223
@@ -1453,6 +1479,7 @@ GameObject:
   - component: {fileID: 1567843217}
   - component: {fileID: 1567843219}
   - component: {fileID: 1567843218}
+  - component: {fileID: 1567843220}
   m_Layer: 0
   m_Name: CentreClock
   m_TagString: Untagged
@@ -1614,6 +1641,26 @@ MonoBehaviour:
   strength: -20
   maxRange: 5
   softening: 0.1
+--- !u!114 &1567843220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567843212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18525a3644ef34e3d8a6194456c6a0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBounce
+  target: {fileID: 0}
+  button: {fileID: 0}
+  hoverScale: 1
+  hoverDuration: 0.15
+  exitDuration: 0.2
+  punchAmount: 0.03
+  punchDuration: 0.2
+  punchVibrato: 1
 --- !u!1 &1780154487
 GameObject:
   m_ObjectHideFlags: 0
