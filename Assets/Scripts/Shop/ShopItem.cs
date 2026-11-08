@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "ShopItem", menuName = "Shop/Shop Item")]
 public class ShopItem : ScriptableObject
 {
+    public float pulseRate;
+    public float pulseAmount;
     public float price;
     public int maxOwned;
     public string displayName;
