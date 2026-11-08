@@ -2,9 +2,11 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using NUnit.Framework;
 
 
-public class ShopSlotUI : MonoBehaviour
+public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Button button;
@@ -13,10 +15,15 @@ public class ShopSlotUI : MonoBehaviour
     [SerializeField] private Image mysteryImage;  
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text priceText;
+    [SerializeField] UpgradeChannel hoverChannel;
+    [SerializeField] EventChannel hoverExitChannel;
 
     private bool isEndgameItem;
 
+    private bool IsMystery;
+
     public ShopItem Item { get; private set; }
+    
 
 
     
@@ -34,9 +41,20 @@ public class ShopSlotUI : MonoBehaviour
 
     public void Refresh(float money, bool unlocked, bool endGame, bool soldOut)
     {
-        bool mystery = isEndgameItem && !endGame;
-        mysteryImage.enabled = mystery;
-        soldOutImage.enabled = !mystery && (!unlocked || soldOut); 
-        button.interactable = !mystery && unlocked && !soldOut && money >= Item.price;
+        IsMystery = isEndgameItem && !endGame;
+        mysteryImage.enabled = IsMystery;
+        soldOutImage.enabled = !IsMystery && (!unlocked || soldOut); 
+        button.interactable = !IsMystery && unlocked && !soldOut && money >= Item.price;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {   
+        if (!IsMystery)
+            hoverChannel.Call(Item);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hoverExitChannel.Call();
     }
 }
