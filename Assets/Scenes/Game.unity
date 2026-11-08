@@ -1500,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58dc2d9ab111bd7ba65fbf414c8227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CentreClock
+  clickClockSfx: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
 --- !u!212 &1567843215
 SpriteRenderer:
   serializedVersion: 2

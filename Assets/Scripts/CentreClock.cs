@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class CentreClock : MonoBehaviour, IPointerClickHandler    
 {
     GameManager gm;
+    public EventChannel clickClockSfx;
 
     void Awake()
     {
@@ -13,6 +14,7 @@ public class CentreClock : MonoBehaviour, IPointerClickHandler
     
     public void OnPointerClick(PointerEventData e)
     {
+        clickClockSfx.Call();
               gm.ClickClock();
     }
 }
