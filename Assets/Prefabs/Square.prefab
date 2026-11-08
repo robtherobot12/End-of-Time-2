@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed945024aa3ca8c78c1ea53410e86ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Repulse
+  isBlackHole: 0
   strength: 20
   maxRange: 5
   softening: 0.1
@@ -150,6 +151,7 @@ GameObject:
   - component: {fileID: 6498848475053996652}
   - component: {fileID: 6671822708984642819}
   - component: {fileID: 7049630796904363879}
+  - component: {fileID: 2937880451882084274}
   m_Layer: 0
   m_Name: Img
   m_TagString: Untagged
@@ -243,3 +245,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0cb36b5c78d936a8a107f6731ec13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  radius: 0.4
+  speed: 0.6
+  speedVariance: 0.3
+  addSecondLayer: 1
+  detailAmount: 0.15
+  detailSpeedMult: 2.7
+--- !u!114 &2937880451882084274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7787414216613551552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb4683fcb34af541b4848a1e182ac10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopIn
+  duration: 0.3
+  startScale: 0
+  bounce: 1
+  useUnscaledTime: 0
