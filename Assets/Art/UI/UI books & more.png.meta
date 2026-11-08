@@ -6034,6 +6034,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StartDeathButtonBoarder
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 176
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 3, z: 10, w: 3}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0869036402f48109dd3c4d13ed51d9
+      internalID: -324757720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -6052,6 +6074,7 @@ TextureImporter:
       Frame_1: -7199870867709024975
       Gold_frame: 3136016307045954798
       Paper Frame: 8559967888716000545
+      StartDeathButtonBoarder: -324757720
       UI books & more_0: -5258132437829971901
       UI books & more_1: -7389965578554813547
       UI books & more_10: 3753526078364807342
