@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Unity.Cinemachine;
 
 public class BlackHole : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Color colorA, colorB, pulseColor, sparkColor;
+
+    [SerializeField] CinemachineImpulseSource impulseSource;
     
     public float sinkRate;
     float health = 1;
@@ -55,6 +58,7 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
         if (health <= 0)
         {
             // dead
+            impulseSource.GenerateImpulse();
             Destroy(wire);
             Destroy(gameObject);
         }
