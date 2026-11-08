@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: PocketWatch
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 10
-  maxOwned: 2
+  pulseRate: 2
+  pulseAmount: 800
+  price: 5000
+  maxOwned: 1
   displayName: Pocket Watch
   description: Broken, old and crusty, but timeless. Get it? Time-less?
   icon: {fileID: -7586109583730292523, guid: 3a1a3ba7d6f19144dac8b1ac0f347c6c, type: 3}

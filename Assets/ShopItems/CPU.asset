@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: CPU
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 10
-  maxOwned: 2
+  pulseRate: 10
+  pulseAmount: 1e+9
+  price: 6.3e+10
+  maxOwned: 1
   displayName: THE SUPERCHIP
   description: To fund this, debt worth the GDP of several small countries was issued.
     It was then packaged into AAA investment grade products and subsequently caused

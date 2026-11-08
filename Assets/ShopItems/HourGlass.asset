@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: HourGlass
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 10
+  pulseRate: 0.1
+  pulseAmount: 50000000
+  price: 90000000
   maxOwned: 1
   displayName: Sands of Time
   description: This strange, glowing hourglass was taken from an antiques collector

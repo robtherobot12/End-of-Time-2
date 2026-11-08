@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: GrandFather
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 2
+  pulseRate: 0.5
+  pulseAmount: 100000
+  price: 50000
   maxOwned: 1
   displayName: Grand Father Clock
   description: It's been through several world wars, marriages, and market bubbles.

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: ToyClock
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
+  pulseRate: 1
+  pulseAmount: 10
   price: 10
-  maxOwned: 2
+  maxOwned: 1
   displayName: Toy Clock
   description: The type of thing you might find in a nursery or primary school. Covered
     in dried food.

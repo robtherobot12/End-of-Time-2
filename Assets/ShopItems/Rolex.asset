@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: Rolex
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 12
+  pulseRate: 100
+  pulseAmount: 10000
+  price: 5184000
   maxOwned: 1
   displayName: Rolex
   description: Very fancy. It's a symbol of status and wealth. Money is time and

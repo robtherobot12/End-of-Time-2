@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: Atomic
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 100
+  pulseRate: 1
+  pulseAmount: 1e+11
+  price: 9.4e+11
   maxOwned: 1
   displayName: Atomic Clock
   description: The most accurate time-keeping device invented by man. Used by scientists

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: Wills
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 13
+  pulseRate: 1
+  pulseAmount: 1e+9
+  price: 1.5e+10
   maxOwned: 1
   displayName: Evil Wills Memorial
   description: It's really big and really evil. Brave souls who venture into this

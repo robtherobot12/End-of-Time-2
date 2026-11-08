@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78e709660f04f78ae83b12caf6af76, type: 3}
   m_Name: Iphone
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  price: 1
+  pulseRate: 5
+  pulseAmount: 100
+  price: 100
   maxOwned: 1
   displayName: Phone
   description: You've got the latest iPhone, and you're very sure all your peers
