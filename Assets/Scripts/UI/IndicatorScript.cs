@@ -5,25 +5,33 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class IndicatorScript : MonoBehaviour
 {
-    public float initSpeed = 1f;
-    public float lerpVal = 1f;
+    public Vector3 targetOffset;
+    public float lerpVal = 0.1f;
     public float fadeTime = 1f;
 
-    private float speed;
     private TMP_Text text;
-
+    private Vector3 targetPos;
+    private bool canIndicate = false;
 
 
     private void Start()
     {
-        speed = initSpeed;
         text = GetComponent<TMP_Text>();
+    }
+
+    public void Activate()
+    {
+        canIndicate = true;
+        targetPos = transform.position + targetOffset;
         text.CrossFadeAlpha(0f, fadeTime, true);
+        Destroy(gameObject, fadeTime);
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * speed);
-        speed = Mathf.Lerp(speed, 0f, Time.deltaTime * lerpVal);
+        if(canIndicate)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos, lerpVal);
+        }
     }
 }
