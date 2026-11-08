@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public EventChannel bhDmgChannel;
     public EventChannel bhDeathChannel;
     public EventChannel bhSpawnChannel;
+    public EventChannel clickClock;
 
     public EventChannel halftime;
     public AudioSource firsthalf;
@@ -20,14 +21,23 @@ public class AudioManager : MonoBehaviour
     public AudioClip bhDeath;
     public AudioClip purchase;
     public AudioClip bhSpawn;
+    public AudioClip clickClockSound;
+    public AudioClip clickClockSound2;
 
     private int bhCount = 0;
+    private bool tik = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         halftime?._event.AddListener(() => PlayHalftime());
         click?._event.AddListener(() => sfx.PlayOneShot(clickSound));
+        clickClock?._event.AddListener(() =>
+        {
+            if (tik) sfx.PlayOneShot(clickClockSound);
+            else sfx.PlayOneShot(clickClockSound);
+            tik = !tik;
+        });
         purchaseChannel?._event.AddListener(() => sfx.PlayOneShot(purchase));
         bhDmgChannel?._event.AddListener(() => sfx.PlayOneShot(bhDamage));
         bhDeathChannel?._event.AddListener(() =>
