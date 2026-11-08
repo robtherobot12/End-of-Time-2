@@ -320,10 +320,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.083333336
+    x: 0
     y: 0
     width: 1
-    height: 1.2722222
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1822,7 +1822,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 280, y: 35}
+  m_SizeDelta: {x: 296, y: 35}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1877713718
 MonoBehaviour:
@@ -1902,8 +1902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 3
+    m_Right: 3
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
