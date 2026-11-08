@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 /// Twinkling stars on several depth layers that shift slightly with the mouse.
 /// Everything is snapped to the pixel grid so it stays crisp at your PPU.
 /// Drop on an empty GameObject. No sprites needed.
-public class BackgroundGenerator : MonoBehaviour
+public class NightSkyGenerator : MonoBehaviour
 {
     [Header("Pixel grid")]
     public int pixelsPerUnit = 32;
