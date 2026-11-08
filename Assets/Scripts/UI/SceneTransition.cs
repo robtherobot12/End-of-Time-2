@@ -88,7 +88,8 @@ public class SceneTransition : MonoBehaviour
 
     // Screen-position helpers
     public static Vector2 ScreenPos(RectTransform ui) =>
-        RectTransformUtility.WorldToScreenPoint(null, ui.position);      // overlay-canvas UI
+        RectTransformUtility.WorldToScreenPoint(Camera.main, ui.position);
+    // overlay-canvas UI
 
     public static Vector2 ScreenPos(Transform world) =>
         Camera.main.WorldToScreenPoint(world.position);                  // sprites in the game world

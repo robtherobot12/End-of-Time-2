@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6441da19898ff5b47808f1f7ea7ccb6b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 660e1f70b12dd45dd95201774ded4dd6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -699,14 +699,17 @@ MonoBehaviour:
   bhDmgChannel: {fileID: 11400000, guid: 11202189db71342449d422008255257d, type: 2}
   bhDeathChannel: {fileID: 11400000, guid: d138b51ebc690d742980c121e7ff2c96, type: 2}
   bhSpawnChannel: {fileID: 11400000, guid: 651becb6864bdae408399f0c592ab592, type: 2}
+  clickClock: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
   halftime: {fileID: 11400000, guid: df2771871344d257abe6dab300a7d046, type: 2}
   firsthalf: {fileID: 8263202660581293262}
   intro: {fileID: 3802619580384886508}
   secondhalf: {fileID: 1875795476889742989}
   sfx: {fileID: 1608763339961567169}
   bhAmbience: {fileID: 6770994453348254597}
-  clickSound: {fileID: 8300000, guid: a62254435db6aa3468fbbefa55203d87, type: 3}
+  clickSound: {fileID: 8300000, guid: 684b003b3df9f4a419aa5960407e0d91, type: 3}
   bhDamage: {fileID: 8300000, guid: 64e0c42aa2a822349b0e1f9863924d27, type: 3}
   bhDeath: {fileID: 8300000, guid: dd24b7d8b5d771340a5cb3e711da30f5, type: 3}
-  purchase: {fileID: 8300000, guid: 7d915f30b8150d042b4001a5195179f1, type: 3}
-  bhSpawn: {fileID: 8300000, guid: f10198f5b73165e4fb5808179a5c0792, type: 3}
+  purchase: {fileID: 8300000, guid: 12659e1e0367c48daa88e7a9577ded95, type: 3}
+  bhSpawn: {fileID: 8300000, guid: a76d815ccc674414bbe4e93c6e5a72ac, type: 3}
+  clickClockSound: {fileID: 8300000, guid: 97fe380651aab8145ad71089e1415051, type: 3}
+  clickClockSound2: {fileID: 8300000, guid: df1ea05bd151d974992c56bead23c052, type: 3}
