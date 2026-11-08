@@ -5111,13 +5111,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_195
+      name: Cursor_Pixel
       rect:
         serializedVersion: 2
-        x: 592
-        y: 80
-        width: 11
-        height: 15
+        x: 593
+        y: 81
+        width: 9
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6048,6 +6048,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Cursor_Pixel: -4246629322471322174
       Frame_1: -7199870867709024975
       Gold_frame: 3136016307045954798
       Paper Frame: 8559967888716000545
@@ -6155,7 +6156,6 @@ TextureImporter:
       UI books & more_192: 1770843558025869036
       UI books & more_193: -658856697694525173
       UI books & more_194: -8215340703738590270
-      UI books & more_195: -4246629322471322174
       UI books & more_196: -6918876339050374979
       UI books & more_197: -7949751280914576756
       UI books & more_198: 6355245346427023886

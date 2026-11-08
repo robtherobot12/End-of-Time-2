@@ -1,23 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
-public class IndicatorTester : MonoBehaviour
+public class IndicatorTester : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject indicatorPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public EventChannel indicateChannel;
+
+    public void OnPointerClick(PointerEventData e)
     {
-        
+        indicateChannel.Call();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector2 pos = Mouse.current.position.ReadValue();
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            GameObject indicator = Instantiate(indicatorPrefab, pos, Quaternion.identity);
-            indicator.transform.SetParent(transform);
-        }
-    }
+
+
 }
