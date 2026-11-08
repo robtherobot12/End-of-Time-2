@@ -15,7 +15,7 @@ public class IndicatorScript : MonoBehaviour
 
     public void Activate(float amount)
     {
-        text.text = "+" + amount.ToString("0.#");
+        text.text = "+" + GameManager.FormatTime(amount);
         canIndicate = true;
         targetPos = transform.position + targetOffset;
         text.CrossFadeAlpha(0f, fadeTime, true);
