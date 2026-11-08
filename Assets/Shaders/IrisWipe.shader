@@ -44,13 +44,17 @@ Shader "UI/IrisWipe"
                 float2 d = px - _Center.xy;
                 float dist = length(d);
 
+                float shrink = saturate(_Radius / 20);
+
                 // wobbly edge: radius varies with angle + time
                 float ang = atan2(d.y, d.x);
-                float r = _Radius + sin(ang * 6 + _Time.y * 4) * _Wobble;
+                float r = _Radius + sin(ang * 6 + _Time.y * 4) * _Wobble * shrink;   
 
-                float black = smoothstep(r, r + _Softness, dist);              // 0 inside hole, 1 outside
-                float rim = 1 - smoothstep(0, _RimWidth, abs(dist - r));       // glowing ring at the edge
-                rim *= saturate(_Radius / 20);                                  // fade rim when nearly closed
+                float black = smoothstep(r, r + _Softness * shrink + 0.001, dist);  
+                black = max(black, step(_Radius, 0.5));                              
+
+                float rim = 1 - smoothstep(0, _RimWidth, abs(dist - r));       
+                rim *= shrink;                                                 
 
                 fixed4 col = lerp(fixed4(0,0,0,0), _Color, black);
                 col = lerp(col, _RimColor, rim * _RimColor.a);

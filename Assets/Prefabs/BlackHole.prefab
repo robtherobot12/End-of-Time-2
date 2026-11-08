@@ -137,7 +137,7 @@ MonoBehaviour:
   bhDamage: {fileID: 11400000, guid: 11202189db71342449d422008255257d, type: 2}
   bhDeath: {fileID: 11400000, guid: d138b51ebc690d742980c121e7ff2c96, type: 2}
   bhSpawn: {fileID: 11400000, guid: 651becb6864bdae408399f0c592ab592, type: 2}
-  sinkRate: 0.1
+  sinkRate: 3
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
 --- !u!114 &8092973032158013652
 MonoBehaviour:
