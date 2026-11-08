@@ -17,7 +17,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject linePrefab;
     [SerializeField] GameObject blackHolePrefab;
     [SerializeField] FloatChannel indicator;
-    [SerializeField] float addAmount = 10;
+    [SerializeField] float baseAddAmount = 1f;
+    [SerializeField] float clicksToBreakEven = 4f;  
+    [SerializeField] float difficultyMultiplier = 1f; 
+
+    [SerializeField] AnimationCurve difficultyOverTime = AnimationCurve.Linear(0, 1, 300, 0.7f);
+
+
+    float ClickValue => (baseAddAmount + sinkRate / clicksToBreakEven) * difficultyMultiplier * difficultyOverTime.Evaluate(Time.timeSinceLevelLoad);
+
+    
     bool isDead;
 
     public Transform centreClock;
@@ -60,8 +69,9 @@ public class GameManager : MonoBehaviour
     }
     
     public void ClickClock() {
-        UpdateMoney(addAmount);
-        indicator.Call(addAmount);
+        float v = ClickValue;
+        UpdateMoney(v);
+        indicator.Call(v);
     }
 
     private void Dead()

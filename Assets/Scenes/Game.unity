@@ -1390,7 +1390,33 @@ MonoBehaviour:
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
   blackHolePrefab: {fileID: 3253079844109756817, guid: 6bc47f38323430f40aa808c6639060c8, type: 3}
   indicator: {fileID: 11400000, guid: 038d5c87c84424700ac4a9080e074272, type: 2}
-  addAmount: 0
+  baseAddAmount: 1
+  clicksToBreakEven: 4
+  difficultyMultiplier: 1
+  difficultyOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.001
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 300
+      value: 0.7
+      inSlope: -0.001
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   centreClock: {fileID: 1567843216}
   endGame: 0
 --- !u!4 &1471888223
