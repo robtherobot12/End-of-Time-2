@@ -72,8 +72,7 @@ public class SceneTransition : MonoBehaviour
         float start = Time.realtimeSinceStartup;
         int smoothFrames = 0;
 
-        // wait for ~5 smooth frames in a row (and at least 0.2s of black),
-        // but never longer than 2s in case the editor is just slow
+    
         while ((smoothFrames < 5 || Time.realtimeSinceStartup - start < 0.2f)
             && Time.realtimeSinceStartup - start < 2f)
         {
