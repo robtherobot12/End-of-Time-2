@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject linePrefab;
     [SerializeField] GameObject blackHolePrefab;
-    [SerializeField] private EventChannel indicator;
+    [SerializeField] FloatChannel indicator;
+    [SerializeField] float addAmount = 10;
 
     public Transform centreClock;
 
@@ -56,8 +58,8 @@ public class GameManager : MonoBehaviour
     }
     
     public void ClickClock() {
-        UpdateMoney(1);
-        indicator.Call();
+        UpdateMoney(addAmount);
+        indicator.Call(addAmount);
     }
 
     private void Dead()

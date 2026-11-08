@@ -921,7 +921,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319328574
 MonoBehaviour:
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IndicatorController
   indicatorPrefab: {fileID: 5409940742799301316, guid: ef0692350e3f71f4783bac915cc673b2, type: 3}
-  indicatorEvent: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
+  indicatorEvent: {fileID: 11400000, guid: 038d5c87c84424700ac4a9080e074272, type: 2}
 --- !u!1 &1372808110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1111,8 @@ MonoBehaviour:
   lineParent: {fileID: 1527774370}
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
   blackHolePrefab: {fileID: 3253079844109756817, guid: 6bc47f38323430f40aa808c6639060c8, type: 3}
-  indicator: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
+  indicator: {fileID: 11400000, guid: 038d5c87c84424700ac4a9080e074272, type: 2}
+  addAmount: 0
   centreClock: {fileID: 1567843216}
   endGame: 0
 --- !u!4 &1471888223
