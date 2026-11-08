@@ -27,17 +27,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnBlackHoles());
+        
     }
 
     void OnEnable()
     {
         upgradeChannel._event.AddListener(HandleBuy);
+        halftimeChannel._event.AddListener(OnHalfTime);
     }
 
     void OnDisable()
     {
         upgradeChannel._event.RemoveListener(HandleBuy);
+        halftimeChannel._event.RemoveListener(OnHalfTime);
     }
 
     void HandleBuy(ShopItem item)
@@ -124,5 +126,10 @@ public class GameManager : MonoBehaviour
             GameObject wire = Instantiate(linePrefab, lineParent);
             blackHole.SetWire(wire);
         }
+    }
+
+    private void OnHalfTime()
+    {
+        StartCoroutine(SpawnBlackHoles());
     }
 }
