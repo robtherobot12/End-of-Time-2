@@ -298,6 +298,7 @@ MonoBehaviour:
   priceText: {fileID: 610678758640195506}
   hoverChannel: {fileID: 11400000, guid: a7bde2ee135521047ac7a42cd1ddfdda, type: 2}
   hoverExitChannel: {fileID: 11400000, guid: 6b7907c89ef3de54c8efc64a71c4ea95, type: 2}
+  reddedOut: {r: 0.496, g: 0.24508233, b: 0.24508233, a: 1}
 --- !u!1 &3543381776635312964
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public ShopItem Item { get; private set; }
     static readonly Color greyedOut = new Color(0.2f, 0.2f, 0.2f, 1f);
+    public Color reddedOut;
 
     
 
@@ -43,9 +44,17 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void Refresh(float money, bool unlocked, bool endGame, bool soldOut)
     {
         IsMystery = isEndgameItem && !endGame;
-        bool greyed = !IsMystery && (!unlocked || soldOut);
         mysteryImage.gameObject.SetActive(IsMystery);
-        icon.color = greyed ? greyedOut : Color.white;
+        var col = Color.white;
+        if (soldOut)
+        {
+            col = greyedOut;
+        } else if (money <= Item.price || !unlocked)
+        {
+            col = reddedOut;
+        }
+
+        if(icon) icon.color = col;
         button.interactable = !IsMystery && unlocked && !soldOut && money >= Item.price;
    }
 
