@@ -13,9 +13,9 @@ public class IndicatorScript : MonoBehaviour
     private Vector3 targetPos;
     private bool canIndicate = false;
 
-    public void Activate(int amount)
+    public void Activate(float amount)
     {
-        text.text = "+" + amount.ToString();
+        text.text = "+" + amount.ToString("0.#");
         canIndicate = true;
         targetPos = transform.position + targetOffset;
         text.CrossFadeAlpha(0f, fadeTime, true);
