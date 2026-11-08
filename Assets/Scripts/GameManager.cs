@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     public void UpdateMoney(float change)
     {
         money += change;
-        timer.text = Mathf.RoundToInt(money).ToString();
+        timer.text = FormatTime(money);
         damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
 
         if (money < 0)
@@ -132,5 +132,35 @@ public class GameManager : MonoBehaviour
     private void OnHalfTime()
     {
         StartCoroutine(SpawnBlackHoles());
+    }
+
+    static readonly (string single, string plural, double seconds)[] timeUnits =
+    {
+        ("second",     "seconds",     1),
+        ("minute",     "minutes",     60),
+        ("hour",       "hours",       3600),
+        ("day",        "days",        86400),
+        ("week",       "weeks",       604800),
+        ("month",      "months",      2629746),
+        ("year",       "years",       31556952),
+        ("decade",     "decades",     315569520),
+        ("century",    "centuries",   3155695200),
+        ("millennium", "millennia",   31556952000),
+        ("million years", "million years", 3.1556952e13),
+        ("billion years", "billion years", 3.1556952e16),
+        ("universe age",  "universe ages", 4.354859e17),
+    };
+
+    string FormatTime(double seconds)
+    {
+        int i = 0;
+        while (i < timeUnits.Length - 1 && seconds >= timeUnits[i + 1].seconds)
+            i++;
+
+        double value = seconds / timeUnits[i].seconds;
+        string number = value.ToString("0.#");
+        string name = number == "1" ? timeUnits[i].single : timeUnits[i].plural;
+
+        return number + " " + name;
     }
 }
