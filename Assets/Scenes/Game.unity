@@ -321,15 +321,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.7697917
+    x: 0
     y: 0
-    width: 0.33333334
-    height: 0.06666666
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.125
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1500,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58dc2d9ab111bd7ba65fbf414c8227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CentreClock
+  clickClockSfx: {fileID: 11400000, guid: 8401c0686bcb947429cdfbcf8e0f3d24, type: 2}
 --- !u!212 &1567843215
 SpriteRenderer:
   serializedVersion: 2
