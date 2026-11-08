@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void UpdateMoney(float change)
     {
         money += change;
-        timer.text = FormatTime(money);
+        timer.text = FormatTime(Mathf.Max(0f, money));
         damageMultiplier.text = $"{sinkRate:0.#} DPS";   
 
         if (money < 0)
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
         UpdateMoney(-Time.deltaTime * sinkRate);
         
     }
