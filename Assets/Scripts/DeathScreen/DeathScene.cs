@@ -14,6 +14,6 @@ public class DeathScene : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("StartMenu");
     }
 }
