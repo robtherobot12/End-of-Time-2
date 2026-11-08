@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class TooltipController : MonoBehaviour
@@ -40,6 +41,7 @@ public class TooltipController : MonoBehaviour
         itemName.text = item.displayName;
         description.text = item.description;
         price.text = item.price.ToString();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
         group.alpha = 1f;
     }
 
