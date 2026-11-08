@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using NUnit.Framework;
 
 
 public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -23,6 +22,8 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool IsMystery;
 
     public ShopItem Item { get; private set; }
+    static readonly Color greyedOut = new Color(0.2f, 0.2f, 0.2f, 1f);
+
     
 
 
@@ -42,10 +43,11 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void Refresh(float money, bool unlocked, bool endGame, bool soldOut)
     {
         IsMystery = isEndgameItem && !endGame;
-        mysteryImage.enabled = IsMystery;
-        soldOutImage.enabled = !IsMystery && (!unlocked || soldOut); 
+        bool greyed = !IsMystery && (!unlocked || soldOut);
+        mysteryImage.gameObject.SetActive(IsMystery);
+        icon.color = greyed ? greyedOut : Color.white;
         button.interactable = !IsMystery && unlocked && !soldOut && money >= Item.price;
-    }
+   }
 
     public void OnPointerEnter(PointerEventData eventData)
     {   
