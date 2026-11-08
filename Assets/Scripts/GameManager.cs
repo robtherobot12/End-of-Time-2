@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationCurve difficultyOverTime = AnimationCurve.Linear(0, 1, 300, 0.7f);
 
 
-    float ClickValue => (baseAddAmount + sinkRate / clicksToBreakEven) * difficultyMultiplier * difficultyOverTime.Evaluate(Time.timeSinceLevelLoad);
+    float ClickValue => Mathf.Max(1, (baseAddAmount + sinkRate / clicksToBreakEven) * difficultyMultiplier * difficultyOverTime.Evaluate(Time.timeSinceLevelLoad));
 
     
     bool isDead;
@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
 
     public bool endGame = false;
 
-    float sinkRate = 1f;
+    float sinkRate = 0f;
     
-    float money = 100f;
+    float money = 10f;
 
     IEnumerator Start()
     { 
@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     {
         UpdateMoney(-item.price);
         AddClock(item);
+
+        baseAddAmount = Mathf.Max(item.pulseAmount * item.pulseRate, baseAddAmount);
         
         if (item.displayName == "Rolex")
         {
@@ -109,6 +111,8 @@ public class GameManager : MonoBehaviour
     public void AddClock(ShopItem clockItem)
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
+        clock.GetComponent<Clock>().pulseRate = clockItem.pulseRate;
+        clock.GetComponent<Clock>().pulseAmount = clockItem.pulseAmount;
         clock.transform.localPosition = GetRandomPosition();
         //clock.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
 

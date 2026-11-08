@@ -3,9 +3,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Unity.Cinemachine;
+using DG.Tweening;
 
 public class BlackHole : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] SpriteRenderer image;
+    [SerializeField] Color flashColor;
     [SerializeField] Color colorA, colorB, pulseColor, sparkColor;
 
     [SerializeField] CinemachineImpulseSource impulseSource;
@@ -70,6 +73,10 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
         } else
         {
             bhDamage.Call();
+            image.DOKill(true); // stop any tween already running on this image
+            image.DOColor(flashColor, 0.05f)
+             .SetLoops(2, LoopType.Yoyo)
+             .SetEase(Ease.OutQuad);
         }
     }
 }

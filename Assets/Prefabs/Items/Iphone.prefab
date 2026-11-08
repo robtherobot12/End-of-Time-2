@@ -65,8 +65,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8489762433071374920, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      propertyPath: pulseRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489762433071374920, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       propertyPath: pulseAmount
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
