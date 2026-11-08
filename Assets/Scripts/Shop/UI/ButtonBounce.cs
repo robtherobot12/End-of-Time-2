@@ -1,65 +1,62 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class ButtonBounce : MonoBehaviour,
-    IPointerEnterHandler, IPointerExitHandler,
-    IPointerDownHandler, IPointerUpHandler
+    IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [Header("Scales")]
-    public float hoverScale = 1.1f;
-    public float pressScale = 0.92f;
+    [SerializeField] Transform target;      // the ShopSlot root
+    [SerializeField] Button button;         // optional: skip bounce when not clickable
 
-    [Header("Timing")]
-    public float hoverDuration = 0.2f;
-    public float pressDuration = 0.1f;
+    [Header("Hover")]
+    public float hoverScale = 1.1f;
+    public float hoverDuration = 0.15f;
+    public float exitDuration = 20f;
+
+    [Header("Click bounce")]
+    public float punchAmount = 0.15f;       // how hard it bounces
+    public float punchDuration = 0.3f;
+    public int punchVibrato = 6;            // how many wobbles
 
     Vector3 baseScale;
     bool isHovering;
 
     void Awake()
     {
-        baseScale = transform.localScale;
+        if (target == null) target = transform;
+        baseScale = target.localScale;
     }
 
     void OnDisable()
     {
-        transform.DOKill();
-        transform.localScale = baseScale;   // reset if the button is hidden mid-tween
+        target.DOKill();
+        target.localScale = baseScale;
     }
+
+    Vector3 RestingScale => isHovering ? baseScale * hoverScale : baseScale;
 
     public void OnPointerEnter(PointerEventData e)
     {
         isHovering = true;
-        transform.DOKill();
-        transform.DOScale(baseScale * hoverScale, hoverDuration)
-            .SetEase(Ease.OutBack)
-            .SetUpdate(true);
+        target.DOKill();
+        target.DOScale(RestingScale, hoverDuration).SetEase(Ease.OutBack).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData e)
     {
         isHovering = false;
-        transform.DOKill();
-        transform.DOScale(baseScale, hoverDuration)
-            .SetEase(Ease.OutQuad)
-            .SetUpdate(true);
+        target.DOKill();
+        target.DOScale(RestingScale, exitDuration).SetEase(Ease.OutCubic).SetUpdate(true);
     }
 
-    public void OnPointerDown(PointerEventData e)
+    public void OnPointerClick(PointerEventData e)
     {
-        transform.DOKill();
-        transform.DOScale(baseScale * pressScale, pressDuration)
-            .SetEase(Ease.OutQuad)
-            .SetUpdate(true);
-    }
+        if (button != null && !button.interactable) return;
 
-    public void OnPointerUp(PointerEventData e)
-    {
-        transform.DOKill();
-        Vector3 target = isHovering ? baseScale * hoverScale : baseScale;
-        transform.DOScale(target, 0.25f)
-            .SetEase(Ease.OutElastic)   // springy release
-            .SetUpdate(true);
+        target.DOKill();
+        target.localScale = RestingScale;   // start from a clean size so bounces don't stack
+        target.DOPunchScale(Vector3.one * punchAmount, punchDuration, punchVibrato, 0.5f)
+              .SetUpdate(true);
     }
 }

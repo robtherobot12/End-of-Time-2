@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 4461139007853211576}
   - component: {fileID: 2727510938979419839}
   - component: {fileID: 789225430610697681}
-  - component: {fileID: 149286523037648093}
   m_Layer: 5
   m_Name: ShopSlot
   m_TagString: Untagged
@@ -299,22 +298,6 @@ MonoBehaviour:
   priceText: {fileID: 610678758640195506}
   hoverChannel: {fileID: 11400000, guid: a7bde2ee135521047ac7a42cd1ddfdda, type: 2}
   hoverExitChannel: {fileID: 11400000, guid: 6b7907c89ef3de54c8efc64a71c4ea95, type: 2}
---- !u!114 &149286523037648093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059058582105931556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18525a3644ef34e3d8a6194456c6a0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonBounce
-  hoverScale: 1.1
-  pressScale: 0.92
-  hoverDuration: 0.2
-  pressDuration: 0.1
 --- !u!1 &3543381776635312964
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +310,7 @@ GameObject:
   - component: {fileID: 7382072637228240610}
   - component: {fileID: 2368519885570514798}
   - component: {fileID: 9132515793498595903}
+  - component: {fileID: 5024352425339604262}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -351,7 +335,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 16, y: 16}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7382072637228240610
 CanvasRenderer:
@@ -435,6 +419,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5024352425339604262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543381776635312964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18525a3644ef34e3d8a6194456c6a0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBounce
+  target: {fileID: 4461139007853211576}
+  button: {fileID: 2368519885570514798}
+  hoverScale: 1.1
+  hoverDuration: 0.15
+  exitDuration: 0.2
+  punchAmount: 0.15
+  punchDuration: 0.3
+  punchVibrato: 6
 --- !u!1 &5470022059562764140
 GameObject:
   m_ObjectHideFlags: 0
