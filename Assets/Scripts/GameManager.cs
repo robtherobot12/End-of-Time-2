@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationCurve difficultyOverTime = AnimationCurve.Linear(0, 1, 300, 0.7f);
 
 
-    float ClickValue => Mathf.Max(1, (baseAddAmount + sinkRate / clicksToBreakEven) * difficultyMultiplier * difficultyOverTime.Evaluate(Time.timeSinceLevelLoad));
+    float ClickValue => Mathf.Max(1, (baseAddAmount + sinkRate / clicksToBreakEven) * difficultyMultiplier /** difficultyOverTime.Evaluate(Time.timeSinceLevelLoad)*/);
 
     
     bool isDead;
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public bool endGame = false;
 
     float sinkRate = 0f;
+    float sinkRatePower = 15f;
     
     float money = 10f;
 
@@ -61,7 +62,8 @@ public class GameManager : MonoBehaviour
         UpdateMoney(-item.price);
         AddClock(item);
 
-        baseAddAmount = Mathf.Max(item.pulseAmount * item.pulseRate, baseAddAmount);
+        //baseAddAmount = Mathf.Max(item.pulseAmount * item.pulseRate, baseAddAmount);
+        baseAddAmount += item.pulseAmount * item.pulseRate;
         
         if (item.displayName == "Rolex")
         {
@@ -123,7 +125,8 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseSinkRate(float multiplier)
     {
-        sinkRate += multiplier;
+        sinkRatePower += multiplier;
+        sinkRate = Mathf.Pow(2, sinkRatePower);
     }
 
     Vector3 GetRandomPosition()
@@ -154,6 +157,7 @@ public class GameManager : MonoBehaviour
 
     private void OnHalfTime()
     {
+        IncreaseSinkRate(0f);
         StartCoroutine(SpawnBlackHoles());
     }
 
