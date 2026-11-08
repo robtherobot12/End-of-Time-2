@@ -8,19 +8,14 @@ public class IndicatorScript : MonoBehaviour
     public Vector3 targetOffset;
     public float lerpVal = 0.1f;
     public float fadeTime = 1f;
+    public TMP_Text text;
 
-    private TMP_Text text;
     private Vector3 targetPos;
     private bool canIndicate = false;
 
-
-    private void Start()
+    public void Activate(int amount)
     {
-        text = GetComponent<TMP_Text>();
-    }
-
-    public void Activate()
-    {
+        text.text = "+" + amount.ToString();
         canIndicate = true;
         targetPos = transform.position + targetOffset;
         text.CrossFadeAlpha(0f, fadeTime, true);
