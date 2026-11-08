@@ -108,6 +108,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9003904596768569172}
+    - targetCorrespondingSourceObject: {fileID: 1686955273488320957, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6290208437339967375}
   m_SourcePrefab: {fileID: 100100000, guid: 29b542626116e55f7aa3001070a2108d, type: 3}
 --- !u!1 &3253079844109756817 stripped
 GameObject:
@@ -130,6 +133,7 @@ MonoBehaviour:
   colorB: {r: 0.46046403, g: 0, b: 0.8301887, a: 1}
   pulseColor: {r: 0.8254717, g: 0, b: 0, a: 1}
   sparkColor: {r: 0.8066038, g: 0.25872195, b: 0.25872195, a: 1}
+  impulseSource: {fileID: 6290208437339967375}
   sinkRate: 0.1
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
 --- !u!114 &8092973032158013652
@@ -181,3 +185,56 @@ MonoBehaviour:
   maxRange: 5
   softening: 0.1
   rb: {fileID: 0}
+--- !u!114 &6290208437339967375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3253079844109756817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 3
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
