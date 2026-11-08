@@ -12,7 +12,7 @@ public class ButtonBounce : MonoBehaviour,
     [Header("Hover")]
     public float hoverScale = 1.1f;
     public float hoverDuration = 0.15f;
-    public float exitDuration = 20f;
+    public float exitDuration = 0.2f;
 
     [Header("Click bounce")]
     public float punchAmount = 0.15f;       // how hard it bounces
