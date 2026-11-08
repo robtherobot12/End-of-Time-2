@@ -9,6 +9,10 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     [SerializeField] Color colorA, colorB, pulseColor, sparkColor;
 
     [SerializeField] CinemachineImpulseSource impulseSource;
+
+    public EventChannel bhDamage;
+    public EventChannel bhDeath;
+    public EventChannel bhSpawn;
     
     public float sinkRate;
     float health = 1;
@@ -22,6 +26,7 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     void Awake()
     {
         gm = FindAnyObjectByType<GameManager>();
+        bhSpawn.Call();
     }
 
     void SetHealth(float newHealth)
@@ -58,9 +63,13 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
         if (health <= 0)
         {
             // dead
+            bhDeath.Call();
             impulseSource.GenerateImpulse();
             Destroy(wire);
             Destroy(gameObject);
+        } else
+        {
+            bhDamage.Call();
         }
     }
 }
