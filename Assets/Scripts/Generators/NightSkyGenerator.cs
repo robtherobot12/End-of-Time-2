@@ -56,25 +56,19 @@ public class NightSkyGenerator : MonoBehaviour
     float nextShooter;
     Vector2 mouse;   // smoothed, -1..1 from screen centre
 
-    void Start()
-    {
-        var cam = Camera.main;
-        if (size == Vector2.zero && cam != null && cam.orthographic)
-        {
-            float h = cam.orthographicSize * 2f;
-            float aspect = Mathf.Max((float)Screen.width / Screen.height, 16f / 9f);
-            size = new Vector2(h * aspect, h);
+   void Start()
+{
+    if (size == Vector2.zero)
+        size = new Vector2(640f, 360f) / pixelsPerUnit;  
 
-        }
+    size += Vector2.one * (maxOffsetPixels * 2f + 2f) / pixelsPerUnit;
 
-        // Pad the area so the parallax never reveals empty edges
-        size += Vector2.one * (maxOffsetPixels * 2f + 2f) / pixelsPerUnit;
+    BuildBackground();
+    BuildStars();
+    BuildShooter();
+    nextShooter = Time.time + Random.Range(shootingStarInterval.x, shootingStarInterval.y);
+}
 
-        BuildBackground();
-        BuildStars();
-        BuildShooter();
-        nextShooter = Time.time + Random.Range(shootingStarInterval.x, shootingStarInterval.y);
-    }
 
     void Update()
     {

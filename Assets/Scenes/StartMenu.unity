@@ -205,7 +205,7 @@ MonoBehaviour:
   m_AssetsPPU: 32
   m_RefResolutionX: 640
   m_RefResolutionY: 360
-  m_CropFrame: 1
+  m_CropFrame: 4
   m_GridSnapping: 1
   m_FilterMode: 0
   m_UpscaleRT: 0
@@ -292,10 +292,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.39583334
     y: 0
-    width: 1
-    height: 1
+    width: 0.6666667
+    height: 0.6666666
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
