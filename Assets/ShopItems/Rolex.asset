@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   pulseRate: 100
   pulseAmount: 10000
-  price: 5184000
+  price: 2084000
   maxOwned: 1
   displayName: Rolex
   description: Very fancy. It's a symbol of status and wealth. Money is time and

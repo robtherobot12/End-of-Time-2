@@ -18,7 +18,7 @@ public class BlackHole : MonoBehaviour, IPointerClickHandler
     public EventChannel bhSpawn;
     
     //public float sinkRate;
-    float sinkRate = 0.03f;
+    float sinkRate = 0.3f;
     float health = 1;
 
     [SerializeField] GameObject linePrefab;
