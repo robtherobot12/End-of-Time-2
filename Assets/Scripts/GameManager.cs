@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,6 +56,12 @@ public class GameManager : MonoBehaviour
         UpdateMoney(1);
     }
 
+    private void Dead()
+    {
+        // TODO maybe some nice animation 
+        SceneManager.LoadScene("DeathScreen");
+    }
+
     public void UpdateMoney(float change)
     {
         money += change;
@@ -63,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         if (money <= 0)
         {
-            //game over!!!
+            Dead();
         }
     }
 
