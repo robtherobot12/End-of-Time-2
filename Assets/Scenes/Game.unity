@@ -1390,7 +1390,7 @@ MonoBehaviour:
   linePrefab: {fileID: 2313224574520114880, guid: 72d514efd455764fc8eeddb44da6feac, type: 3}
   blackHolePrefab: {fileID: 3253079844109756817, guid: 6bc47f38323430f40aa808c6639060c8, type: 3}
   indicator: {fileID: 11400000, guid: 038d5c87c84424700ac4a9080e074272, type: 2}
-  baseAddAmount: 1e+12
+  baseAddAmount: 1
   clicksToBreakEven: 4
   difficultyMultiplier: 1
   difficultyOverTime:
