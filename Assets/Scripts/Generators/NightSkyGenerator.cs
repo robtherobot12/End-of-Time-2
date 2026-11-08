@@ -62,7 +62,9 @@ public class NightSkyGenerator : MonoBehaviour
         if (size == Vector2.zero && cam != null && cam.orthographic)
         {
             float h = cam.orthographicSize * 2f;
-            size = new Vector2(h * cam.aspect, h);
+            float aspect = Mathf.Max((float)Screen.width / Screen.height, 16f / 9f);
+            size = new Vector2(h * aspect, h);
+
         }
 
         // Pad the area so the parallax never reveals empty edges
