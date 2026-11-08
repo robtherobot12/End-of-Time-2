@@ -321,15 +321,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5755209
+    x: 0
     y: 0
-    width: 0.33333334
-    height: 0.65925926
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5625
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1453,6 +1453,7 @@ GameObject:
   - component: {fileID: 1567843217}
   - component: {fileID: 1567843219}
   - component: {fileID: 1567843218}
+  - component: {fileID: 1567843220}
   m_Layer: 0
   m_Name: CentreClock
   m_TagString: Untagged
@@ -1614,6 +1615,26 @@ MonoBehaviour:
   strength: -20
   maxRange: 5
   softening: 0.1
+--- !u!114 &1567843220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567843212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18525a3644ef34e3d8a6194456c6a0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBounce
+  target: {fileID: 0}
+  button: {fileID: 0}
+  hoverScale: 1
+  hoverDuration: 0.15
+  exitDuration: 0.2
+  punchAmount: 0.03
+  punchDuration: 0.2
+  punchVibrato: 1
 --- !u!1 &1780154487
 GameObject:
   m_ObjectHideFlags: 0
