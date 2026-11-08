@@ -24,11 +24,12 @@ public class HalftimeAnimation : MonoBehaviour
 
     [Header("Options")]
     public bool showOnStart = false;
+    public float clickDelay = 1f;
 
     CanvasGroup group;
     Coroutine routine;
     bool skipRequested;
-    int shownFrame;
+    float shownTime;
 
     void Awake()
     {
@@ -46,14 +47,14 @@ public class HalftimeAnimation : MonoBehaviour
     public void Show(float seconds)
     {
         if (routine != null) StopCoroutine(routine);
-        shownFrame = Time.frameCount;     // so the click that opened it doesn't close it
+        shownTime = Time.unscaledTime;     // so the click that opened it doesn't close it
         routine = StartCoroutine(Run(seconds));
     }
 
     void Update()
     {
         // Any click while visible skips straight to the exit animation
-        if (routine != null && Time.frameCount != shownFrame && PressedThisFrame())
+        if (routine != null && Time.unscaledTime - shownTime >= clickDelay && PressedThisFrame())
             skipRequested = true;
     }
 
