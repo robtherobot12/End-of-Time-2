@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
 
     public bool endGame = false;
 
-    float sinkRate = 1f;
+    float sinkRate = 0f;
     
-    float money = 100f;
+    float money = 10f;
 
     IEnumerator Start()
     { 
