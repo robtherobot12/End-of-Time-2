@@ -706,7 +706,7 @@ MonoBehaviour:
   sfx: {fileID: 1608763339961567169}
   bhAmbience: {fileID: 6770994453348254597}
   clickSound: {fileID: 8300000, guid: a62254435db6aa3468fbbefa55203d87, type: 3}
-  bhDamage: {fileID: 8300000, guid: e1c8d9ea55cbddb4a9b59ac066f16785, type: 3}
-  bhDeath: {fileID: 8300000, guid: 462533cc2aaa146478b6fb5ef75c8ee6, type: 3}
+  bhDamage: {fileID: 8300000, guid: 64e0c42aa2a822349b0e1f9863924d27, type: 3}
+  bhDeath: {fileID: 8300000, guid: dd24b7d8b5d771340a5cb3e711da30f5, type: 3}
   purchase: {fileID: 8300000, guid: 7d915f30b8150d042b4001a5195179f1, type: 3}
   bhSpawn: {fileID: 8300000, guid: f10198f5b73165e4fb5808179a5c0792, type: 3}

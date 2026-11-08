@@ -1,5 +1,4 @@
 using System.Collections;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject blackHolePrefab;
     [SerializeField] FloatChannel indicator;
     [SerializeField] float addAmount = 10;
+    bool isDead;
 
     public Transform centreClock;
 
@@ -28,9 +28,11 @@ public class GameManager : MonoBehaviour
     
     float money = 100f;
 
-    void Start()
-    {
-        
+    IEnumerator Start()
+    { 
+        yield return null;
+        if (SceneTransition.Instance != null)
+            SceneTransition.Instance.Open(SceneTransition.ScreenPos(centreClock)); 
     }
 
     void OnEnable()
@@ -64,8 +66,10 @@ public class GameManager : MonoBehaviour
 
     private void Dead()
     {
-        // TODO maybe some nice animation 
-        SceneManager.LoadScene("DeathScreen");
+        if (isDead) return;     
+            isDead = true;
+        SceneTransition.Instance.LoadScene("DeathScreen", SceneTransition.ScreenPos(centreClock));
+
     }
 
     public void UpdateMoney(float change)
@@ -73,7 +77,7 @@ public class GameManager : MonoBehaviour
         money += change;
         timer.text = FormatTime(money);
         damageMultiplier.text = $"{sinkRate:0.#} DPS";   
-        
+
         if (money < 0)
         {
             Dead();
