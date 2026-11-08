@@ -72,8 +72,8 @@ public class GameManager : MonoBehaviour
     {
         money += change;
         timer.text = FormatTime(money);
-        damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
-
+        damageMultiplier.text = $"{sinkRate:0.#} DPS";   
+        
         if (money < 0)
         {
             Dead();
