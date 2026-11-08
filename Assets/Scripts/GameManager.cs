@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         timer.text = Mathf.RoundToInt(money).ToString();
         damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
 
-        if (money <= 0)
+        if (money < 0)
         {
             Dead();
         }
@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
         clock.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
-        UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
         wire.startPoint = clock.transform;
