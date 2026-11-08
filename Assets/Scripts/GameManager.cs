@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,17 +27,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnBlackHoles());
+        
     }
 
     void OnEnable()
     {
         upgradeChannel._event.AddListener(HandleBuy);
+        halftimeChannel._event.AddListener(OnHalfTime);
     }
 
     void OnDisable()
     {
         upgradeChannel._event.RemoveListener(HandleBuy);
+        halftimeChannel._event.RemoveListener(OnHalfTime);
     }
 
     void HandleBuy(ShopItem item)
@@ -55,15 +58,21 @@ public class GameManager : MonoBehaviour
         UpdateMoney(1);
     }
 
+    private void Dead()
+    {
+        // TODO maybe some nice animation 
+        SceneManager.LoadScene("DeathScreen");
+    }
+
     public void UpdateMoney(float change)
     {
         money += change;
         timer.text = Mathf.RoundToInt(money).ToString();
         damageMultiplier.text = Mathf.RoundToInt(sinkRate).ToString();
 
-        if (money <= 0)
+        if (money < 0)
         {
-            //game over!!!
+            Dead();
         }
     }
 
@@ -82,7 +91,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
         clock.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
-        UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
         wire.startPoint = clock.transform;
@@ -117,5 +125,10 @@ public class GameManager : MonoBehaviour
             GameObject wire = Instantiate(linePrefab, lineParent);
             blackHole.SetWire(wire);
         }
+    }
+
+    private void OnHalfTime()
+    {
+        StartCoroutine(SpawnBlackHoles());
     }
 }

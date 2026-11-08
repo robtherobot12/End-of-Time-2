@@ -15,14 +15,46 @@ public class Wire : MonoBehaviour
     public float waveAmplitude = 0.5f; // How tall the wiggles are
     public float wiggleSpeed = 10f;   // How fast the wave moves
 
+
+    [Header("Motion")]
+    [SerializeField] float speed = 0.01f;         // how fast it wanders
+    [SerializeField] float speedVariance = 0f; // randomises speed per instance
+
+    Vector2 seedA, seedB, seedC;
+    float speedX, speedY, speedZ;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
     }
 
+    void Awake()
+    {
+        waveFrequency = Random.Range(7f, 9f);
+        waveAmplitude = Random.Range(0.3f, 0.7f);
+        wiggleSpeed = Random.Range(2f, 3f);
+        /*seedA = new Vector2(UnityEngine.Random.Range(0f, 1000f), UnityEngine.Random.Range(0f, 1000f));
+        seedB = new Vector2(UnityEngine.Random.Range(0f, 1000f), UnityEngine.Random.Range(0f, 1000f));
+        seedC = new Vector2(UnityEngine.Random.Range(0f, 1000f), UnityEngine.Random.Range(0f, 1000f));
+
+        speedX = speed * UnityEngine.Random.Range(1f - speedVariance, 1f + speedVariance);
+        speedY = speed * UnityEngine.Random.Range(1f - speedVariance, 1f + speedVariance);
+        speedZ = speed * UnityEngine.Random.Range(1f - speedVariance, 1f + speedVariance);
+    */}
+
     void Update()
     {
         if (startPoint == null || endPoint == null) return;
+
+        //float t = Time.time;
+
+        //float freq = Mathf.PerlinNoise(seedA.x + t * speedX, seedA.y);
+        //float amp = Mathf.PerlinNoise(seedB.x, seedB.y + t * speedY);
+        //float speed = Mathf.PerlinNoise(seedC.x, seedC.y + t * speedY);
+
+        //waveFrequency = Mathf.Lerp(7f, 9f, freq);
+        //waveAmplitude = Mathf.Lerp(0.3f, 0.7f, amp);
+        //wiggleSpeed = Mathf.Lerp(2f, 3f, speed);
 
         GenerateWave();
     }
