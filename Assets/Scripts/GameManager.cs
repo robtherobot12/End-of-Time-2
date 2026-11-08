@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     public void AddClock(ShopItem clockItem)
     {
         GameObject clock = Instantiate(clockItem.prefab, clockParent);
-        clock.transform.localPosition = GetRandomPosition();
+        clock.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
         UpdateMoney(-clockItem.price);
 
         Wire wire = Instantiate(linePrefab, lineParent).GetComponent<Wire>();
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
 
             BlackHole blackHole = Instantiate(blackHolePrefab, clockParent).GetComponent<BlackHole>();
-            blackHole.transform.GetComponent<ClockMovement>().SetOffset(GetRandomPosition());
+            blackHole.transform.GetComponent<BlackHoleMovement>().SetOffset(GetRandomPosition());
             GameObject wire = Instantiate(linePrefab, lineParent);
             blackHole.SetWire(wire);
         }

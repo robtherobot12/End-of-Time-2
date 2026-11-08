@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67867d05c1f39c510acd8dc6d762f180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClockMovement
+  radius: 0.4
+  speed: 0.6
+  speedVariance: 0.3
+  addSecondLayer: 1
+  detailAmount: 0.15
+  detailSpeedMult: 2.7
 --- !u!114 &8489762433071374920
 MonoBehaviour:
   m_ObjectHideFlags: 0
