@@ -12,6 +12,7 @@ public class TooltipController : MonoBehaviour
     public TMP_Text itemName;
     public TMP_Text description;
     public TMP_Text price;
+    public TMP_Text tps;
 
     RectTransform rect;
     CanvasGroup group;
@@ -42,7 +43,8 @@ public class TooltipController : MonoBehaviour
     {
         itemName.text = item.displayName;
         description.text = item.description;
-        price.text = GameManager.FormatTime(item.price);
+        price.text = "Price: " + GameManager.FormatTime(item.price);
+        tps.text = "TPS: " + GameManager.FormatTime(item.pulseRate * item.pulseAmount);
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
         group.alpha = 1f;
     }
