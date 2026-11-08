@@ -40,7 +40,7 @@ public class TooltipController : MonoBehaviour
     {
         itemName.text = item.displayName;
         description.text = item.description;
-        price.text = item.price.ToString();
+        price.text = GameManager.FormatTime(item.price);
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
         group.alpha = 1f;
     }
