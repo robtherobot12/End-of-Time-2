@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     float sinkRate = 0f;
     float sinkRatePower = 15f;
     
-    float money = 10f;
+    float money = 5f;
 
     IEnumerator Start()
     { 

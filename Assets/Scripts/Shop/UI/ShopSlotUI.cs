@@ -49,7 +49,7 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (soldOut)
         {
             col = greyedOut;
-        } else if (money <= Item.price || !unlocked)
+        } else if (money < Item.price || !unlocked)
         {
             col = reddedOut;
         }
